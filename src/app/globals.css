@@ -21,3 +21,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.otln{
+  outline: 1px solid red;
+}
