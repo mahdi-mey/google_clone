@@ -9,15 +9,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/images/google-logo.png" /> {/* Path to your favicon */}
-        <link rel="apple-touch-icon" href="/logo.png" /> {/* Optional */}
+        <link rel="icon" href="/images/google-logo.png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
       </head>
-      <body className="h-[100dvh] border flex flex-col justify-between border-red-500 ">
-        {/*
-            // MainHeader
-            // GoogleSearch
-            // Customize 
-        */}
+      <body className="h-[100dvh] flex flex-col justify-between">
         {children}
       </body>
     </html>

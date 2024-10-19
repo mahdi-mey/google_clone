@@ -1,13 +1,13 @@
 import MainHeader from "@/components/MainHeader";
 import GoogleSearch from "@/components/GoogleSearch";
-import Customize from "@/components/Customize";
+import MainFooter from "@/components/MainFooter";
 
 export default function Home() {
   return (
     <>
       <MainHeader />
       <GoogleSearch />
-      <Customize />
+      <MainFooter />
     </>
   );
 }
