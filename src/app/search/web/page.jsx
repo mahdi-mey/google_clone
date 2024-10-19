@@ -1,3 +1,4 @@
+import SearchResaults from "@/components/SearchResaults";
 import Link from "next/link";
 import React from "react";
 // const resposne = fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}'}&start=${startIndex}`
@@ -34,10 +35,7 @@ export default async function Web_Page({searchParams}) {
 
   return (
     <div>
-      {resaults &&
-        resaults.map((resault) => {
-          return <h1 key={resault.title} className="bg-red-100 text-black">{resault.title}</h1>;
-        })}
+      {resaults && <SearchResaults results={data} />}
     </div>
   );
 }
