@@ -1,4 +1,4 @@
-import AddShortucts from "./AddShortucts";
+import AddShortucts from "./ShortuctsContainer";
 import MainForm from "./MainForm";
 import MainLogo from "./MainLogo";
 
