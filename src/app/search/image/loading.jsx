@@ -1,23 +1,19 @@
-export default function loading() {
+import React from "react";
+
+const LoadingPage = () => {
   return (
-    <div className="pt-10 mx-2 lg:pl-52 max-w-6xl flex sm:space-x-4 flex-col sm:flex-row pb-42">
-      <div className="animate-pulse">
-        <div className="h-48 w-48 mb-4 bg-gray-200 rounded-md"></div>
-        <div className="h-2 w-48 mb-2.5 bg-gray-200 rounded-md"></div>
-        <div className="h-2 w-48 mb-2.5 bg-gray-200 rounded-md"></div>
-      </div>
-      <div className="hidden sm:inline-flex sm:space-x-4">
-        <div className="animate-pulse">
-          <div className="h-48 w-48 mb-4 bg-gray-200 rounded-md"></div>
-          <div className="h-2 w-48 mb-2.5 bg-gray-200 rounded-md"></div>
-          <div className="h-2 w-48 mb-2.5 bg-gray-200 rounded-md"></div>
-        </div>
-        <div className="animate-pulse">
-          <div className="h-48 w-48 mb-4 bg-gray-200 rounded-md"></div>
-          <div className="h-2 w-48 mb-2.5 bg-gray-200 rounded-md"></div>
-          <div className="h-2 w-48 mb-2.5 bg-gray-200 rounded-md"></div>
-        </div>
+    <div className="sm:pb-24 pb-40 mt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-3 space-x-4">
+        {Array.from({ length: 8 }).map((_, index) => (
+          <div className="mb-8" key={index}>
+            <div className="group bg-gray-200 animate-pulse h-60 rounded-lg"></div>
+            <div className="bg-gray-200 animate-pulse h-6 mt-2 rounded"></div>
+            <div className="bg-gray-200 animate-pulse h-4 mt-1 rounded w-3/4"></div>
+          </div>
+        ))}
       </div>
     </div>
   );
-}
+};
+
+export default LoadingPage;
