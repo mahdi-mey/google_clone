@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PaginationButtons from "./PaginationButtons";
 
 export default function ImageSearchResults({ results }) {
   return (
@@ -8,7 +9,7 @@ export default function ImageSearchResults({ results }) {
           <div className="mb-8" key={result.link}>
             <div className="group">
               <Link href={result.image.contextLink}>
-                 {/* eslint-disable-next-line @next/next/no-img-element */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={result.link}
                   alt={result.title}
@@ -29,7 +30,8 @@ export default function ImageSearchResults({ results }) {
           </div>
         ))}
       </div>
-      <div className="ml-16">
+      <div className="pl-16">
+        <PaginationButtons />
       </div>
     </div>
   );

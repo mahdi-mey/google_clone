@@ -3,8 +3,9 @@ import Link from "next/link";
 import React from "react";
 
 export default async function Web_Page({ searchParams }) {
+  const startIndex = searchParams.start || "1";
   const resposne = await fetch(
-    `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}`
+    `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&start=${startIndex}`
   );
   if (!resposne.ok) throw new Error("Something went wrong");
   const data = await resposne.json();

@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link";
 import Parser from "html-react-parser";
+import PaginationButtons from "./PaginationButtons";
 
 export default function WebSearchResults({ results }) {
   console.log(results.items[0]);
@@ -47,6 +48,7 @@ export default function WebSearchResults({ results }) {
           </div>
         );
       })}
+      <PaginationButtons />
     </div>
   );
 }
