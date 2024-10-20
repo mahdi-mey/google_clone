@@ -12,7 +12,7 @@ export default function WebSearchResults({ results }) {
         {results.searchInformation?.formattedSearchTime} seconds)
       </p>
       {results.items?.map((result) => {
-        // Extract the favicon URL from cse_thumbnail or use a default icon
+
         const faviconUrl =
           result.pagemap?.cse_thumbnail?.[0]?.src ||
           "https://www.google.com/s2/favicons?sz=64&domain=" +
@@ -21,7 +21,6 @@ export default function WebSearchResults({ results }) {
         return (
           <div className="mb-8 max-w-xl" key={result.link}>
             <div className="group flex items-center mb-2">
-              {/* Display the favicon image */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={faviconUrl}
