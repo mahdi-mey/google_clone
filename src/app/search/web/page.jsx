@@ -1,13 +1,12 @@
-import SearchResaults from "@/components/SearchResaults";
+import SearchResaults from "@/components/SearchResults";
 import Link from "next/link";
 import React from "react";
-// const resposne = fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}'}&start=${startIndex}`
 
-export default async function Web_Page({searchParams}) {
+export default async function Web_Page({ searchParams }) {
   const resposne = await fetch(
     `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}`
   );
-  if(!resposne.ok) throw new Error('Something went wrong')
+  if (!resposne.ok) throw new Error("Something went wrong");
   const data = await resposne.json();
   const resaults = data.items;
 
@@ -33,9 +32,5 @@ export default async function Web_Page({searchParams}) {
     );
   }
 
-  return (
-    <div>
-      {resaults && <SearchResaults results={data} />}
-    </div>
-  );
+  return <div>{resaults && <SearchResaults results={data} />}</div>;
 }
