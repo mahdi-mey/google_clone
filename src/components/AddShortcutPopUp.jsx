@@ -2,12 +2,16 @@
 
 import { useState } from "react";
 
-export default function AddShortcutPopUp({ changeOpen }) {
+export default function AddShortcutPopUp({ changeOpen, setShortcuts }) {
   const [nameInput, setNameInput] = useState("");
   const [urlInput, setUrlnInput] = useState("");
 
   function addShortcut(e) {
-    e.preventDefault();
+    e.preventDefault()
+    setShortcuts(prevValues => {
+      return [...prevValues, { name: nameInput, url: urlInput }];
+    })
+    closeModal()
   }
 
   function closeModal() {
