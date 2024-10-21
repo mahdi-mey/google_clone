@@ -9,6 +9,7 @@ export default function AddShortcutPopUp({ changeOpen, setShortcuts }) {
   function addShortcut(e) {
     e.preventDefault()
     setShortcuts(prevValues => {
+      console.log('inside setShortcuts function');
       return [...prevValues, { name: nameInput, url: urlInput }];
     })
     closeModal()
