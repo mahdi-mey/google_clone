@@ -45,6 +45,8 @@ export default function AddShortcutPopUp({ changeOpen, setShortcuts }) {
           id="shortcutName"
           value={nameInput}
           onChange={(e) => setNameInput(e.target.value)}
+          autoComplete="off"
+          autoFocus
         />
         <label
           className="font-bold text-sm text-gray-600"
@@ -59,6 +61,7 @@ export default function AddShortcutPopUp({ changeOpen, setShortcuts }) {
           id="shortcutUrl"
           value={urlInput}
           onChange={(e) => setUrlnInput(e.target.value)}
+          autoComplete="off"
         />
 
         <div className="flex justify-end items-center gap-3 mr-1">
