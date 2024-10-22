@@ -1,9 +1,9 @@
 "use client";
 
-import { BsFillMicFill } from "react-icons/bs";
 import { RxCross1 } from "react-icons/rx";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useState, useRef } from "react";
+import MicrophoneIcon from "./MicrophoneIcon";
 
 export default function SearchBox() {
   const searchParams = useSearchParams();
@@ -14,9 +14,11 @@ export default function SearchBox() {
   const inputRef = useRef(null)
 
   function handleSubmit(e) {
-    e.preventDefault();
-    if (!term.trim()) return;
-    router.push(`/search/web?searchTerm=${term}`);
+     e.preventDefault();
+     console.log("Form submitted"); // debug line
+     if (!term.trim()) return; // if term is empty, exit
+     console.log(`Routing to: /search/web?searchTerm=${term}`); // debug line
+     router.push(`/search/web?searchTerm=${term}`);
   }
 
   // Function to clear input and focus it
@@ -43,7 +45,7 @@ export default function SearchBox() {
           className="sm:text-lg text-base text-gray-600 cursor-pointer transition-all duration-200 active:scale-75"
         />
         <div className="bg-gray-400 w-[1px] h-full mx-2"></div>
-        <BsFillMicFill className="sm:text-lg text-base text-gray-600 cursor-pointer transition-all duration-200 active:scale-75" />
+        <MicrophoneIcon />
       </div>
     </form>
   );

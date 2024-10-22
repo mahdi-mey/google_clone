@@ -1,4 +1,4 @@
-import Customize from "./Customize";
+import Customize from "./Customize/CustomizeButton";
 import UserCountry from "./UserCountry";
 
 export default function MainFooter() {
