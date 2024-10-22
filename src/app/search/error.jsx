@@ -8,8 +8,8 @@ export default function Error({ error, reset }) {
   }, [error]);
 
   return (
-    <div className="flex flex-col justify-center items-center mt-5 gap-6">
-      <h1 className="text-xl text-center">Some thing went wrong</h1>
+    <div className="mt-5 flex flex-col items-center justify-center gap-6">
+      <h1 className="text-center text-xl">Some thing went wrong</h1>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/confused.gif"

@@ -9,22 +9,24 @@ export default function ShortcutsContainer() {
   const [shortcuts, setShortcuts] = useState([]);
 
   return (
-    <div className="flex flex-row items-center justify-center gap-2 mt-2.5">
+    <div className="mt-2.5 flex flex-row items-center justify-center gap-2">
       {shortcuts.map((shrtct) => {
         let faviconUrl;
         try {
-          const parsedUrl = new URL(shrtct.url)
-          faviconUrl = `${parsedUrl.origin}/favicon.ico`
+          const parsedUrl = new URL(shrtct.url);
+          faviconUrl = `${parsedUrl.origin}/favicon.ico`;
         } catch (e) {
-          faviconUrl = "/images/default-web.jpg"
+          faviconUrl = "/images/default-web.jpg";
         }
-        return <Shortcut key={shrtct.url} shrtct={shrtct} faviconUrl={faviconUrl} />;
+        return (
+          <Shortcut key={shrtct.url} shrtct={shrtct} faviconUrl={faviconUrl} />
+        );
       })}
 
       {shortcuts.length < 10 && (
         <AddShortcutButton setIsAddShortcutOpen={setIsAddShortcutOpen} />
       )}
-      
+
       {isAddShortcutOpen && (
         <AddShortcutPopUp
           changeOpen={setIsAddShortcutOpen}

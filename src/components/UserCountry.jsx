@@ -9,7 +9,7 @@ export default function UserCountry() {
     async function getCountry() {
       try {
         const res = await fetch(
-          "http://ip-api.com/json/?fields=status,message,country,countryCode"
+          "http://ip-api.com/json/?fields=status,message,country,countryCode",
         );
         const data = await res.json();
 
@@ -23,7 +23,7 @@ export default function UserCountry() {
       }
     }
 
-    getCountry()
+    getCountry();
   }, []);
 
   return <h3 className="ml-4">{country}</h3>;

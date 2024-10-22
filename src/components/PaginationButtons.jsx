@@ -11,12 +11,12 @@ export default function PaginationButtons() {
   const startIndex = +searchParams.get("start") || 1;
 
   return (
-    <div className="text-blue-700 flex px-10 pb-4 justify-between sm:justify-start sm:space-x-44 sm:px-0">
+    <div className="flex justify-between px-10 pb-4 text-blue-700 sm:justify-start sm:space-x-44 sm:px-0">
       {startIndex >= 10 && (
         <Link
           href={`${pathname}?searchTerm=${searchTerm}&start=${startIndex - 10}`}
         >
-          <div className="flex flex-row gap-2 items-center hover:underline">
+          <div className="flex flex-row items-center gap-2 hover:underline">
             <BsChevronLeft className="h-5" />
             <p>Previous</p>
           </div>
@@ -26,7 +26,7 @@ export default function PaginationButtons() {
         <Link
           href={`${pathname}?searchTerm=${searchTerm}&start=${startIndex + 10}`}
         >
-          <div className="flex flex-row gap-2 items-center hover:underline">
+          <div className="flex flex-row items-center gap-2 hover:underline">
             <p>Next</p>
             <BsChevronRight className="h-5" />
           </div>

@@ -7,12 +7,12 @@ export default function AddShortcutPopUp({ changeOpen, setShortcuts }) {
   const [urlInput, setUrlnInput] = useState("");
 
   function addShortcut(e) {
-    e.preventDefault()
-    setShortcuts(prevValues => {
-      console.log('inside setShortcuts function');
+    e.preventDefault();
+    setShortcuts((prevValues) => {
+      console.log("inside setShortcuts function");
       return [...prevValues, { name: nameInput, url: urlInput }];
-    })
-    closeModal()
+    });
+    closeModal();
   }
 
   function closeModal() {
@@ -23,23 +23,23 @@ export default function AddShortcutPopUp({ changeOpen, setShortcuts }) {
 
   return (
     <div
-      className="absolute inset-0 bg-black/15 flex justify-center items-center"
+      className="absolute inset-0 flex items-center justify-center bg-black/15"
       onClick={() => closeModal}
     >
       <form
-        className="h-72 bg-white w-full max-w-[512px] mx-auto rounded-md flex flex-col justify-evenly px-3"
+        className="mx-auto flex h-72 w-full max-w-[512px] flex-col justify-evenly rounded-md bg-white px-3"
         onClick={(e) => e.stopPropagation()}
         onSubmit={addShortcut}
       >
         <h2>Add Shortcut</h2>
         <label
-          className="font-bold text-sm text-gray-600"
+          className="text-sm font-bold text-gray-600"
           htmlFor="shortcutName"
         >
           Name
         </label>
         <input
-          className="bg-gray-200/70 focus:border-blue-600 outline-none ps-2 rounded-t-md h-9 border-b-2 border-gray-500"
+          className="h-9 rounded-t-md border-b-2 border-gray-500 bg-gray-200/70 ps-2 outline-none focus:border-blue-600"
           type="text"
           name="shortcutName"
           id="shortcutName"
@@ -49,13 +49,13 @@ export default function AddShortcutPopUp({ changeOpen, setShortcuts }) {
           autoFocus
         />
         <label
-          className="font-bold text-sm text-gray-600"
+          className="text-sm font-bold text-gray-600"
           htmlFor="shortcutUrl"
         >
           Url
         </label>
         <input
-          className="bg-gray-200/70 focus:border-blue-600 outline-none ps-2 rounded-t-md h-9 border-b-2 border-gray-500"
+          className="h-9 rounded-t-md border-b-2 border-gray-500 bg-gray-200/70 ps-2 outline-none focus:border-blue-600"
           type="text"
           name="shortcutUrl"
           id="shortcutUrl"
@@ -64,15 +64,15 @@ export default function AddShortcutPopUp({ changeOpen, setShortcuts }) {
           autoComplete="off"
         />
 
-        <div className="flex justify-end items-center gap-3 mr-1">
+        <div className="mr-1 flex items-center justify-end gap-3">
           <button
-            className="py-1.5 px-3 rounded-full border-1 border  border-blue-500 text-blue-500 text-base"
+            className="border-1 rounded-full border border-blue-500 px-3 py-1.5 text-base text-blue-500"
             onClick={closeModal}
           >
             Cancel
           </button>
           <button
-            className="py-1.5 px-3 rounded-full disabled:cursor-not-allowed disabled:bg-gray-400 bg-blue-500 text-white text-base"
+            className="rounded-full bg-blue-500 px-3 py-1.5 text-base text-white disabled:cursor-not-allowed disabled:bg-gray-400"
             disabled={!canSubmit}
           >
             Done
