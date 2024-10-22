@@ -1,5 +1,13 @@
-"use client";
-export default function Shortcut({ shrtct, faviconUrl }) {
+"use client"
+
+export default function Shortcut({ shrtct}) {
+  let faviconUrl;
+  try {
+    const parsedUrl = new URL(shrtct.url);
+    faviconUrl = `${parsedUrl.origin}/favicon.ico`;
+  } catch (e) {
+    faviconUrl = "/images/default-web.jpg";
+  }
   return (
     <a
       href={shrtct.url}

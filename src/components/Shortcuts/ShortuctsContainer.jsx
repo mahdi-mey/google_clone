@@ -11,15 +11,8 @@ export default function ShortcutsContainer() {
   return (
     <div className="mt-2.5 flex flex-row items-center justify-center gap-2">
       {shortcuts.map((shrtct) => {
-        let faviconUrl;
-        try {
-          const parsedUrl = new URL(shrtct.url);
-          faviconUrl = `${parsedUrl.origin}/favicon.ico`;
-        } catch (e) {
-          faviconUrl = "/images/default-web.jpg";
-        }
         return (
-          <Shortcut key={shrtct.url} shrtct={shrtct} faviconUrl={faviconUrl} />
+          <Shortcut key={shrtct.url} shrtct={shrtct}/>
         );
       })}
 
