@@ -15,9 +15,7 @@ export default function SearchBox() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("Form submitted"); // debug line
     if (!term.trim()) return; // if term is empty, exit
-    console.log(`Routing to: /search/web?searchTerm=${term}`); // debug line
     router.push(`/search/web?searchTerm=${term}`);
   }
 
@@ -30,7 +28,7 @@ export default function SearchBox() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-4/6 rounded-full border border-gray-300 px-5 py-3 transition-shadow focus-within:shadow-md hover:shadow-md"
+      className="flex w-1/2 sm:w-4/6 rounded-full border border-gray-300 px-5 py-3 transition-shadow focus-within:shadow-md hover:shadow-md"
     >
       <input
         type="text"

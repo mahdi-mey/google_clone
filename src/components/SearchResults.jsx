@@ -26,21 +26,20 @@ export default function WebSearchResults({ results }) {
                 className="mr-3 size-8 rounded-full outline outline-1 outline-gray-300"
               />
               <div className="flex flex-col">
-                <p>{result.pagemap.metatags[0]["application-name"]}</p>
                 <Link
                   href={result.link}
-                  className="mb-1 text-gray-500 hover:underline"
+                  className="truncate text-xl font-medium text-blue-800 decoration-blue-800 group-hover:underline"
+                >
+                  {result.title}
+                </Link>
+                <Link
+                  href={result.link}
+                  className="mb-1 text-gray-500"
                 >
                   {result.formattedUrl}
                 </Link>
               </div>
             </div>
-            <Link
-              href={result.link}
-              className="truncate text-xl font-medium text-blue-800 decoration-blue-800 group-hover:underline"
-            >
-              {result.title}
-            </Link>
             <p className="text-gray-600">{Parser(result.htmlSnippet)}</p>
           </div>
         );
