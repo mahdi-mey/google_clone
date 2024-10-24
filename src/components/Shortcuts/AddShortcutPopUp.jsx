@@ -1,25 +1,25 @@
-"use client";
+"use client"
 
-import { useState } from "react";
+import { useState } from "react"
 
 export default function AddShortcutPopUp({ changeOpen, setShortcuts }) {
-  const [nameInput, setNameInput] = useState("");
-  const [urlInput, setUrlnInput] = useState("");
+  const [nameInput, setNameInput] = useState("")
+  const [urlInput, setUrlnInput] = useState("")
 
   function addShortcut(e) {
-    e.preventDefault();
+    e.preventDefault()
     setShortcuts((prevValues) => {
-      console.log("inside setShortcuts function");
-      return [...prevValues, { name: nameInput, url: urlInput }];
-    });
-    closeModal();
+      console.log("inside setShortcuts function")
+      return [...prevValues, { name: nameInput, url: urlInput }]
+    })
+    closeModal()
   }
 
   function closeModal() {
-    changeOpen(false);
+    changeOpen(false)
   }
 
-  const canSubmit = nameInput.trim().length > 0 && urlInput.trim().length > 0;
+  const canSubmit = nameInput.trim().length > 0 && urlInput.trim().length > 0
 
   return (
     <div
@@ -47,6 +47,7 @@ export default function AddShortcutPopUp({ changeOpen, setShortcuts }) {
           onChange={(e) => setNameInput(e.target.value)}
           autoComplete="off"
           autoFocus
+          maxLength={15}
         />
         <label
           className="text-sm font-bold text-gray-600"
@@ -80,5 +81,5 @@ export default function AddShortcutPopUp({ changeOpen, setShortcuts }) {
         </div>
       </form>
     </div>
-  );
+  )
 }
