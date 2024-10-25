@@ -1,34 +1,42 @@
-"use client";
+"use client"
 
-import { RxCross1 } from "react-icons/rx";
-import { useSearchParams, useRouter } from "next/navigation";
-import { useState, useRef } from "react";
-import MicrophoneIcon from "./MicrophoneIcon";
+import { RxCross1 } from "react-icons/rx"
+import { useSearchParams, useRouter, usePathname } from "next/navigation"
+import { useState, useRef } from "react"
+import MicrophoneIcon from "./MicrophoneIcon"
 
 export default function SearchBox() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const pathName = usePathname()
 
-  const searchTerm = searchParams.get("searchTerm");
-  const [term, setTerm] = useState(searchTerm || "");
-  const inputRef = useRef(null);
+  const searchTerm = searchParams.get("searchTerm")
+  const [term, setTerm] = useState(searchTerm || "")
+  const inputRef = useRef(null)
 
   function handleSubmit(e) {
-    e.preventDefault();
-    if (!term.trim()) return; // if term is empty, exit
-    router.push(`/search/web?searchTerm=${term}`);
+    e.preventDefault()
+    if (!term.trim()) return
+    if (pathName === '/search/image') {
+      router.push(`/search/image?searchTerm=${term}`)
+    } else if (pathName === '/search/web') {
+      router.push(`/search/web?searchTerm=${term}`)
+    } else {
+      alert('Some Error Happened')
+    }
+
   }
 
   // Function to clear input and focus it
   function clearInput() {
-    setTerm("");
-    inputRef.current.focus();
+    setTerm("")
+    inputRef.current.focus()
   }
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-1/2 sm:w-4/6 rounded-full border border-gray-300 px-5 py-3 transition-shadow focus-within:shadow-md hover:shadow-md"
+      className="flex w-1/2 rounded-full border border-gray-300 px-5 py-3 transition-shadow focus-within:shadow-md hover:shadow-md sm:w-4/6"
     >
       <input
         type="text"
@@ -46,5 +54,5 @@ export default function SearchBox() {
         <MicrophoneIcon />
       </div>
     </form>
-  );
+  )
 }
