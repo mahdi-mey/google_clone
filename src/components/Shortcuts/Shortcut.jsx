@@ -3,9 +3,9 @@ import { useState, useRef, useEffect } from "react"
 import { BiDotsVerticalRounded } from "react-icons/bi"
 import EditOrRemoveShortcut from "./EditOrRemoveShortcut"
 
-export default function Shortcut({ shrtct }) {
+export default function Shortcut({ shrtct, setShortcuts }) {
   const [isEditOpen, setIsEditOpen] = useState(false)
-  const editRef = useRef(null) // Create a ref for the EditOrRemoveShortcut
+  const editRef = useRef(null)
 
   let faviconUrl
   try {
@@ -38,7 +38,7 @@ export default function Shortcut({ shrtct }) {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [isEditOpen])
-
+  // console.log(shrtct);
   return (
     <a
       href={shrtct.url}
@@ -62,11 +62,11 @@ export default function Shortcut({ shrtct }) {
       <p className="text-sm">{shrtct.name}</p>
       <BiDotsVerticalRounded
         onClick={handleIconClick}
-        className="absolute right-2 top-2 rounded-full text-xl font-bold transition-all duration-500 hover:bg-slate-100 group-hover:opacity-100 sm:opacity-0"
+        className="duration-600 absolute right-2 top-2 rounded-full text-xl font-bold transition-all hover:bg-slate-100 group-hover:opacity-100 sm:opacity-0"
       />
       {isEditOpen && (
         <div ref={editRef}>
-          <EditOrRemoveShortcut />
+          <EditOrRemoveShortcut shrtct={shrtct} setShortcuts={setShortcuts} />
         </div>
       )}
     </a>

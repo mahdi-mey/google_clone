@@ -6,14 +6,18 @@ import Shortcut from "./Shortcut";
 
 export default function ShortcutsContainer() {
   const [isAddShortcutOpen, setIsAddShortcutOpen] = useState(false);
-  const [shortcuts, setShortcuts] = useState([]);
+  const [shortcuts, setShortcuts] = useState([])
 
   return (
-    <div className="mt-2.5 flex flex-row items-center justify-center gap-2">
+    <div className="mt-2.5 flex flex-row items-center justify-center gap-2 flex-wrap">
       {shortcuts.map((shrtct) => {
         return (
-          <Shortcut key={shrtct.url} shrtct={shrtct}/>
-        );
+          <Shortcut
+            key={shrtct.url}
+            shrtct={shrtct}
+            setShortcuts={setShortcuts}
+          />
+        )
       })}
 
       {shortcuts.length < 10 && (
