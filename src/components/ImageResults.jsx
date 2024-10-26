@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PaginationButtons from "./PaginationButtons";
+import Image from "next/image";
 
 export default function ImageSearchResults({ results }) {
   return (
@@ -10,10 +11,10 @@ export default function ImageSearchResults({ results }) {
             <div className="group">
               <Link href={result.image.contextLink}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={result.link}
                   alt={result.title}
-                  className="h-60 w-full object-contain transition-shadow duration-300 group-hover:shadow-xl"
+                  className="h-60 otln w-full object-cover transition-shadow duration-300 group-hover:shadow-xl"
                 />
               </Link>
               <Link href={result.image.contextLink}>

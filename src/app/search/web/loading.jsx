@@ -2,9 +2,9 @@ import React from "react";
 
 const LoadingWebSearchResults = () => {
   return (
-    <div className="mx-auto w-full px-3 pb-40 sm:pb-24 sm:pl-[5%] md:pl-[14%] lg:pl-52">
+    <div className="mx-auto w-full px-3 pb-12 sm:pl-[5%] md:pl-[14%] lg:pl-52">
       <p className="mb-5 mt-3 h-5 w-80 animate-pulse rounded bg-gray-200 text-sm text-gray-600"></p>
-      {Array.from({ length: 8 }).map((_, index) => (
+      {Array.from({ length: 5 }).map((_, index) => (
         <div className="mb-8 max-w-xl" key={index}>
           {/* Favicon & URL placeholders */}
           <div className="group mb-2 flex items-center">
