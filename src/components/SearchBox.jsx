@@ -17,14 +17,13 @@ export default function SearchBox() {
   function handleSubmit(e) {
     e.preventDefault()
     if (!term.trim()) return
-    if (pathName === '/search/image') {
+    if (pathName === "/search/image") {
       router.push(`/search/image?searchTerm=${term}`)
-    } else if (pathName === '/search/web') {
+    } else if (pathName === "/search/web") {
       router.push(`/search/web?searchTerm=${term}`)
     } else {
-      alert('Some Error Happened')
+      alert("Some Error Happened")
     }
-
   }
 
   // Function to clear input and focus it
@@ -36,7 +35,7 @@ export default function SearchBox() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-1/2 rounded-full border border-gray-300 px-5 py-3 transition-shadow focus-within:shadow-md hover:shadow-md sm:w-4/6"
+      className="mx-[calc(2.5px,5%,8px)] flex w-1/2 rounded-full border border-gray-300 px-5 py-3 transition-shadow focus-within:shadow-md hover:shadow-md sm:w-4/6"
     >
       <input
         type="text"

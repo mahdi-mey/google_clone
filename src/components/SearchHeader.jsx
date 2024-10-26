@@ -1,19 +1,20 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import SearchBox from "./SearchBox";
-import SearchHeaderOptions from "./SearchHeaderOptions";
+import Image from "next/image"
+import Link from "next/link"
+import React from "react"
+import SearchBox from "./SearchBox"
+import SearchHeaderOptions from "./SearchHeaderOptions"
 
 export default function SearchHeader() {
   return (
     <>
-      <header className="sticky top-0 flex flex-row items-center justify-center gap-1.5 sm:gap-0 sm:justify-around bg-white py-3">
+      <header className="sticky top-0 flex flex-row items-center justify-center gap-1.5 bg-white py-3 sm:justify-around sm:gap-0">
         <Link href="/">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png"
             alt="Google Logo"
-            className="w-12"
+            className="w-16 sm:w-32"
+            width={128}
+            height={44}
           />
         </Link>
         <SearchBox />
@@ -23,5 +24,5 @@ export default function SearchHeader() {
       </header>
       <SearchHeaderOptions />
     </>
-  );
+  )
 }
