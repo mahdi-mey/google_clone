@@ -1,17 +1,30 @@
-"use client";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
-import MicrophoneIcon from "./MicrophoneIcon";
+"use client"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
+import { AiOutlineSearch } from "react-icons/ai"
+import MicrophoneIcon from "./MicrophoneIcon"
 
 export default function MainForm() {
-  const [inputValue, setInputValue] = useState("");
-  const router = useRouter();
+  const [inputValue, setInputValue] = useState("")
+  const router = useRouter()
 
   function handleSubmit(e) {
-    e.preventDefault();
-    if (!inputValue.trim()) return;
-    router.push(`/search/web?searchTerm=${inputValue}`);
+    e.preventDefault()
+    if (!inputValue.trim()) return
+
+    // Regular expression to check for valid URLs
+    const urlRegex =
+      /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})(\/[^\s]*)?$/
+
+    if (urlRegex.test(inputValue)) {
+      // Redirect to the valid URL
+      window.location.href = inputValue.startsWith("http")
+        ? inputValue
+        : `https://${inputValue}`
+    } else {
+      // Proceed with the search
+      router.push(`/search/web?searchTerm=${inputValue}`)
+    }
   }
 
   return (
@@ -31,5 +44,5 @@ export default function MainForm() {
       />
       <MicrophoneIcon />
     </form>
-  );
+  )
 }
