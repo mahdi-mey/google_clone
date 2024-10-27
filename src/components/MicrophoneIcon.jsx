@@ -5,8 +5,7 @@ import SpeechRecognition, {
 } from "react-speech-recognition"
 import { useEffect, useState } from "react"
 import { BsFillMicFill } from "react-icons/bs"
-import FadeLoader from 'react-spinners/FadeLoader'
-import Loader from "./Loader/Loader"
+import Loader from "@/components/Loader/Loader"
 
 export default function MicrophoneIcon() {
   const {

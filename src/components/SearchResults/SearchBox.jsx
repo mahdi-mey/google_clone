@@ -3,7 +3,7 @@
 import { RxCross1 } from "react-icons/rx"
 import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import { useState, useRef } from "react"
-import MicrophoneIcon from "./MicrophoneIcon"
+import MicrophoneIcon from "@/components/MicrophoneIcon"
 
 export default function SearchBox() {
   const searchParams = useSearchParams()

@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { AiOutlineSearch } from "react-icons/ai"
-import MicrophoneIcon from "./MicrophoneIcon"
+import MicrophoneIcon from "@/components/MicrophoneIcon"
 
 export default function MainForm() {
   const [inputValue, setInputValue] = useState("")

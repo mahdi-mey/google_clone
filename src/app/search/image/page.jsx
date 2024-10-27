@@ -1,15 +1,15 @@
-import ImageResults from "@/components/ImageResults";
-import Link from "next/link";
-import React from "react";
+import ImageResults from "@/components/SearchResults/ImageResults"
+import Link from "next/link"
+import React from "react"
 
 export default async function Images_Page({ searchParams }) {
-  const startIndex = searchParams.start || "1";
+  const startIndex = searchParams.start || "1"
   const resposne = await fetch(
     `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&searchType=image&start=${startIndex}`,
-  );
-  if (!resposne.ok) throw new Error("Something went wrong");
-  const data = await resposne.json();
-  const resaults = data.items;
+  )
+  if (!resposne.ok) throw new Error("Something went wrong")
+  const data = await resposne.json()
+  const resaults = data.items
 
   if (!resaults) {
     return (
@@ -30,8 +30,8 @@ export default async function Images_Page({ searchParams }) {
           alt="page not found image"
         />
       </div>
-    );
+    )
   }
 
-  return <div>{resaults && <ImageResults results={data} />}</div>;
+  return <div>{resaults && <ImageResults results={data} />}</div>
 }

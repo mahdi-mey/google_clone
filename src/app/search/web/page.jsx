@@ -1,4 +1,4 @@
-import SearchResaults from "@/components/SearchResults";
+import SearchResaults from "@/components/SearchResults/SearchResults";
 import Link from "next/link";
 import React from "react";
 

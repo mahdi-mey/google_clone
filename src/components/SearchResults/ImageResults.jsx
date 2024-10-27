@@ -1,6 +1,6 @@
-import Link from "next/link";
-import PaginationButtons from "./PaginationButtons";
-import Image from "next/image";
+import Link from "next/link"
+import PaginationButtons from "../PaginationButtons"
+import Image from "next/image"
 
 export default function ImageSearchResults({ results }) {
   return (
@@ -14,7 +14,7 @@ export default function ImageSearchResults({ results }) {
                 <Image
                   src={result.link}
                   alt={result.title}
-                  className="h-60 otln w-full object-cover transition-shadow duration-300 group-hover:shadow-xl"
+                  className="otln h-60 w-full object-cover transition-shadow duration-300 group-hover:shadow-xl"
                 />
               </Link>
               <Link href={result.image.contextLink}>
@@ -35,5 +35,5 @@ export default function ImageSearchResults({ results }) {
         <PaginationButtons />
       </div>
     </div>
-  );
+  )
 }
