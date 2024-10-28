@@ -18,7 +18,7 @@ export default function SearchHeader() {
           />
         </Link>
         <SearchBox />
-        <button className="w-28 rounded-lg bg-blue-500 px-3 py-1.5 font-bold text-white sm:px-7 sm:py-3 whitespace-nowrap">
+        <button className="w-28 ml-2 rounded-lg bg-blue-500 px-3 py-1.5 font-bold text-white sm:px-7 sm:py-3 whitespace-nowrap">
           Sign In
         </button>
       </header>

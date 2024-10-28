@@ -47,7 +47,7 @@ export default function SearchBox() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative mx-[clamp(2.5px,5%,8px)] flex w-full min-w-0 max-w-[700px] rounded-full border border-gray-300 transition-shadow focus-within:shadow-md hover:shadow-md"
+      className="relative mr-auto mx-[clamp(2.5px,5%,8px)] flex w-full min-w-0 max-w-[700px] rounded-full border border-gray-300 transition-shadow focus-within:shadow-md hover:shadow-md"
     >
       <input
         type="text"
@@ -56,7 +56,7 @@ export default function SearchBox() {
         ref={inputRef}
         className="w-full min-w-0 flex-grow rounded-full px-5 py-3 focus:outline-none"
       />
-      <div className="absolute right-2 top-1/2 flex -translate-y-1/2 transform items-center">
+      <div className="absolute right-3 top-1/2 flex -translate-y-1/2 transform items-center">
         <RxCross1
           onClick={clearInput}
           className="cursor-pointer text-base text-gray-600 transition-all duration-200 active:scale-75 sm:text-lg"

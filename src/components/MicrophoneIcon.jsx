@@ -6,38 +6,54 @@ import SpeechRecognition, {
 import { useEffect, useState } from "react"
 import { BsFillMicFill } from "react-icons/bs"
 import Loader from "@/components/Loader/Loader"
+import { useRouter } from "next/navigation"
 
 export default function MicrophoneIcon() {
+  const router = useRouter()
+  const [canSearch, setCanSearch] = useState(false)
+
+  function timeout(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms))
+  }
+
   const {
     transcript,
     listening,
     resetTranscript,
     browserSupportsSpeechRecognition,
-    isMicrophoneAvailable
+    isMicrophoneAvailable,
   } = useSpeechRecognition()
 
-  const [isListening, setIslistening] = useState(false)
-
   async function listenHandler() {
+    resetTranscript()
     console.log("started listening")
-    setIslistening(true)
     SpeechRecognition.startListening()
-
-    setTimeout(() => {
-      SpeechRecognition.stopListening
-      console.log("stopeed")
-      console.log(transcript)
-      setIslistening(false)
-    }, 5000)
+    await timeout(4000)
+    SpeechRecognition.stopListening()
+    console.log("stopped")
+    setCanSearch(true)
   }
 
-  if (!browserSupportsSpeechRecognition) {
-    console.log("no browser support")
+  useEffect(() => {
+    if (!browserSupportsSpeechRecognition) {
+      // render ui for browser does not support
+    }
+  }, [browserSupportsSpeechRecognition])
+
+  useEffect(() => {
+    if (canSearch) {
+      if(!transcript) return
+      router.push(`/search/web?searchTerm=${transcript}`)
+    }
+  }, [transcript, canSearch, router])
+
+  if (!isMicrophoneAvailable) {
+    //render ui component microphone not available
   }
 
   return (
     <>
-      {isListening === true ? (
+      {listening ? (
         <Loader />
       ) : (
         <BsFillMicFill
