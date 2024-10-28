@@ -22,11 +22,11 @@ export default function SearchBox() {
     const urlRegex =
       /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})(\/[^\s]*)?$/
 
-    if (urlRegex.test(inputValue)) {
+    if (urlRegex.test(term)) {
       // Redirect to the valid URL
-      window.location.href = inputValue.startsWith("http")
-        ? inputValue
-        : `https://${inputValue}`
+      window.location.href = term.startsWith("http")
+        ? term
+        : `https://${term}`
     } else {
       if (pathName === "/search/image") {
         router.push(`/search/image?searchTerm=${term}`)
