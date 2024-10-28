@@ -1,9 +1,14 @@
 import ImageResults from "@/components/SearchResults/ImageResults"
 import Link from "next/link"
 import React from "react"
+import { redirect } from "next/navigation"
 
 export default async function Images_Page({ searchParams }) {
   const startIndex = searchParams.start || "1"
+  //check to see if there is content to search and if not then redirect to main page
+  if (!searchParams.searchTerm.trim()) {
+    redirect("/")
+  }
   const resposne = await fetch(
     `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&searchType=image&start=${startIndex}`,
   )
