@@ -17,12 +17,24 @@ export default function SearchBox() {
   function handleSubmit(e) {
     e.preventDefault()
     if (!term.trim()) return
-    if (pathName === "/search/image") {
-      router.push(`/search/image?searchTerm=${term}`)
-    } else if (pathName === "/search/web") {
-      router.push(`/search/web?searchTerm=${term}`)
+
+    // Regular expression to check for valid URLs
+    const urlRegex =
+      /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]+\.[a-zA-Z]{2,})(\/[^\s]*)?$/
+
+    if (urlRegex.test(inputValue)) {
+      // Redirect to the valid URL
+      window.location.href = inputValue.startsWith("http")
+        ? inputValue
+        : `https://${inputValue}`
     } else {
-      alert("Some Error Happened")
+      if (pathName === "/search/image") {
+        router.push(`/search/image?searchTerm=${term}`)
+      } else if (pathName === "/search/web") {
+        router.push(`/search/web?searchTerm=${term}`)
+      } else {
+        alert("Some Error Happened")
+      }
     }
   }
 
@@ -49,7 +61,7 @@ export default function SearchBox() {
           onClick={clearInput}
           className="cursor-pointer text-base text-gray-600 transition-all duration-200 active:scale-75 sm:text-lg"
         />
-        <div className="h-6 w-[1px] mx-1.5 sm:mx-2.5 bg-gray-800"></div>
+        <div className="mx-1.5 h-6 w-[1px] bg-gray-800 sm:mx-2.5"></div>
         <MicrophoneIcon />
       </div>
     </form>
