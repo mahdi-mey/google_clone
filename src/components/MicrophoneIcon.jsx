@@ -7,6 +7,8 @@ import { useEffect, useState } from "react"
 import { BsFillMicFill } from "react-icons/bs"
 import Loader from "@/components/Loader/Loader"
 import { useRouter } from "next/navigation"
+import NoMicSupport from "./Alert/NoMicSupport"
+import MicNotAllowed from "./Alert/MicNotAllowed"
 
 export default function MicrophoneIcon() {
   const router = useRouter()
@@ -36,19 +38,19 @@ export default function MicrophoneIcon() {
 
   useEffect(() => {
     if (!browserSupportsSpeechRecognition) {
-      // render ui for browser does not support
+      return <NoMicSupport />
     }
   }, [browserSupportsSpeechRecognition])
 
   useEffect(() => {
     if (canSearch) {
-      if(!transcript) return
+      if (!transcript) return
       router.push(`/search/web?searchTerm=${transcript}`)
     }
   }, [transcript, canSearch, router])
 
   if (!isMicrophoneAvailable) {
-    //render ui component microphone not available
+    return <MicNotAllowed />
   }
 
   return (

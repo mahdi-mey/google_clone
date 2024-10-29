@@ -13,7 +13,7 @@ export default function AlertTemplate({
         {icon}
         <h2 className="text-center text-2xl">{title}</h2>
         <p className="text-center text-sm text-gray-600" dangerouslySetInnerHTML={{__html: description}} />
-        <button className="otln mt-5 w-2/3 rounded-full px-1.5 py-2.5 text-center text-red-500 transition-all hover:bg-red-500 hover:text-white">
+        <button className="otln mt-5 w-2/5 rounded-full px-1.5 py-2.5 text-center text-red-500 transition-all hover:bg-red-500 hover:text-white">
           {buttonText}
         </button>
       </div>
