@@ -50,6 +50,7 @@ export default function MicrophoneIcon() {
   }, [transcript, canSearch, router])
 
   if (!isMicrophoneAvailable) {
+    console.log('mic not available');
     return <MicNotAllowed />
   }
 
