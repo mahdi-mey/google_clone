@@ -13,6 +13,7 @@ import MicNotAllowed from "./Alert/MicNotAllowed"
 export default function MicrophoneIcon() {
   const router = useRouter()
   const [canSearch, setCanSearch] = useState(false)
+  const [isMicAvailabel, setIsMicAvailabel] = useState(true)
 
   function timeout(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms))
@@ -41,6 +42,13 @@ export default function MicrophoneIcon() {
       return <NoMicSupport />
     }
   }, [browserSupportsSpeechRecognition])
+  
+  useEffect(() => {
+    // Check if the microphone is available and update state accordingly
+    if (!isMicrophoneAvailable) {
+      setIsMicAvailabel(false)
+    }
+  }, [isMicrophoneAvailable])
 
   useEffect(() => {
     if (canSearch) {
@@ -49,13 +57,9 @@ export default function MicrophoneIcon() {
     }
   }, [transcript, canSearch, router])
 
-  if (!isMicrophoneAvailable) {
-    console.log('mic not available');
-    return <MicNotAllowed />
-  }
-
   return (
     <>
+      {!isMicAvailabel && <MicNotAllowed />}
       {listening ? (
         <Loader />
       ) : (
