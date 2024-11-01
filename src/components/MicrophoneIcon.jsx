@@ -13,7 +13,8 @@ import MicNotAllowed from "./Alert/MicNotAllowed"
 export default function MicrophoneIcon() {
   const router = useRouter()
   const [canSearch, setCanSearch] = useState(false)
-  const [isMicAvailabel, setIsMicAvailabel] = useState(true)
+  const [isMicrophoneGranted, setIsMicrophoneGranted] = useState(null)
+  const [showAlert, setShowAlert] = useState(false)
 
   function timeout(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms))
@@ -24,17 +25,51 @@ export default function MicrophoneIcon() {
     listening,
     resetTranscript,
     browserSupportsSpeechRecognition,
-    isMicrophoneAvailable,
   } = useSpeechRecognition()
 
   async function listenHandler() {
-    resetTranscript()
-    console.log("started listening")
-    SpeechRecognition.startListening()
-    await timeout(4000)
-    SpeechRecognition.stopListening()
-    console.log("stopped")
-    setCanSearch(true)
+    if (isMicrophoneGranted === null) {
+      // Check for microphone permission when the button is clicked
+      await checkMicrophonePermission()
+    }
+
+    if (isMicrophoneGranted) {
+      resetTranscript()
+      console.log("started listening")
+      SpeechRecognition.startListening()
+      await timeout(4000)
+      SpeechRecognition.stopListening()
+      console.log("stopped")
+      setCanSearch(true)
+    } else {
+      console.log("you have denied access to your microphone")
+      setShowAlert(true) // Show the alert if access is denied
+    }
+  }
+
+  const checkMicrophonePermission = async () => {
+    if (!navigator.permissions || !navigator.permissions.query) {
+      // Permissions API is not supported
+      setIsMicrophoneGranted(false)
+      return
+    }
+
+    try {
+      const permissionStatus = await navigator.permissions.query({
+        name: "microphone",
+      })
+
+      // Set true for granted, false for denied, or null for prompt or error
+      setIsMicrophoneGranted(permissionStatus.state === "granted")
+
+      // Optionally, listen for changes in permission
+      permissionStatus.onchange = () => {
+        setIsMicrophoneGranted(permissionStatus.state === "granted")
+      }
+    } catch (error) {
+      console.error("Error checking microphone permission:", error)
+      setIsMicrophoneGranted(false) // Treat errors as denied
+    }
   }
 
   useEffect(() => {
@@ -42,13 +77,6 @@ export default function MicrophoneIcon() {
       return <NoMicSupport />
     }
   }, [browserSupportsSpeechRecognition])
-  
-  useEffect(() => {
-    // Check if the microphone is available and update state accordingly
-    if (!isMicrophoneAvailable) {
-      setIsMicAvailabel(false)
-    }
-  }, [isMicrophoneAvailable])
 
   useEffect(() => {
     if (canSearch) {
@@ -59,7 +87,7 @@ export default function MicrophoneIcon() {
 
   return (
     <>
-      {!isMicAvailabel && <MicNotAllowed />}
+      {showAlert && <MicNotAllowed />}
       {listening ? (
         <Loader />
       ) : (
