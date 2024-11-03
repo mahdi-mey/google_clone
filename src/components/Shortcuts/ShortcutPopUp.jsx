@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-export default function AddShortcutPopUp({ changeOpen, setShortcuts }) {
+export default function ShortcutPopUp({ changeOpen, setShortcuts }) {
   const [nameInput, setNameInput] = useState("")
   const [urlInput, setUrlInput] = useState("") // Fixed state update function name
 

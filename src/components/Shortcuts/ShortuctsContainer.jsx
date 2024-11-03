@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import AddShortcutPopUp from "./AddShortcutPopUp";
+import ShortcutPopUp from "./ShortcutPopUp";
 import AddShortcutButton from "./AddShortcutButton";
 import Shortcut from "./Shortcut";
 
@@ -25,7 +25,7 @@ export default function ShortcutsContainer() {
       )}
 
       {isAddShortcutOpen && (
-        <AddShortcutPopUp
+        <ShortcutPopUp
           changeOpen={setIsAddShortcutOpen}
           setShortcuts={setShortcuts}
         />

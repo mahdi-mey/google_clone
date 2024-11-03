@@ -1,6 +1,10 @@
 "use client"
 
+import { useState } from "react"
+
 export default function EditOrRemoveShortcut({ shrtct, setShortcuts }) {
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+  
   function editShortcut(e) {
     e.stopPropagation()
     e.preventDefault()
@@ -10,7 +14,7 @@ export default function EditOrRemoveShortcut({ shrtct, setShortcuts }) {
     e.stopPropagation()
     e.preventDefault()
     setShortcuts((prevState) => {
-    return prevState.filter((item) => item.url !== shrtct.url)
+      return prevState.filter((item) => item.url !== shrtct.url)
     })
   }
 

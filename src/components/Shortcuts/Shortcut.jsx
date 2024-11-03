@@ -38,7 +38,7 @@ export default function Shortcut({ shrtct, setShortcuts }) {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [isEditOpen])
-  // console.log(shrtct);
+
   return (
     <a
       href={shrtct.url}
