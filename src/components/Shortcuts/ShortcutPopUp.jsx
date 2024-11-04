@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
 
 export default function ShortcutPopUp({ changeOpen, setShortcuts }) {
   const [nameInput, setNameInput] = useState("")
@@ -26,7 +27,10 @@ export default function ShortcutPopUp({ changeOpen, setShortcuts }) {
       className="absolute inset-0 flex items-center justify-center bg-black/15"
       onClick={closeModal}
     >
-      <form
+      <motion.form
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0, opacity: 0, transition: { duration: 0.1 } }}
         className="mx-auto flex h-72 w-full max-w-[512px] flex-col justify-evenly rounded-md bg-white px-3"
         onClick={(e) => e.stopPropagation()} // Prevent clicks on the form from closing the modal
         onSubmit={addShortcut} // Ensure addShortcut is the submit handler
@@ -81,7 +85,7 @@ export default function ShortcutPopUp({ changeOpen, setShortcuts }) {
             Done
           </button>
         </div>
-      </form>
+      </motion.form>
     </div>
   )
 }
