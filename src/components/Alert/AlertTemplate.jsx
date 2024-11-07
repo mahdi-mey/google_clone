@@ -20,7 +20,7 @@ export default function AlertTemplate({
       {isModalShown && (
         <div
           onClick={handleCloseModal}
-          className="absolute inset-0 flex items-center justify-center bg-gray-800/35 backdrop-blur-none"
+          className="absolute inset-0 flex items-center justify-center bg-gray-800/35 backdrop-blur-[2px] z-50"
         >
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
