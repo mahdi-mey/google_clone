@@ -5,31 +5,33 @@ import AddShortcutButton from "./AddShortcutButton";
 import Shortcut from "./Shortcut";
 
 export default function ShortcutsContainer() {
-  const [isAddShortcutOpen, setIsAddShortcutOpen] = useState(false);
+  const [isShortcutPopUpOpen, setIsShortcutPopUpOpen] = useState(false);
   const [shortcuts, setShortcuts] = useState([])
 
   return (
-    <div className="mt-2.5 flex flex-row items-center justify-center gap-2 flex-wrap">
+    <div className="mt-2.5 flex flex-row flex-wrap items-center justify-center gap-2">
       {shortcuts.map((shrtct) => {
         return (
           <Shortcut
             key={shrtct.url}
             shrtct={shrtct}
             setShortcuts={setShortcuts}
+            setIsShortcutPopUpOpen={setIsShortcutPopUpOpen}
           />
         )
       })}
 
-      {shortcuts.length < 10 && (
-        <AddShortcutButton setIsAddShortcutOpen={setIsAddShortcutOpen} />
+      {shortcuts.length < 5 && (
+        <AddShortcutButton setIsAddShortcutOpen={setIsShortcutPopUpOpen} />
       )}
 
-      {isAddShortcutOpen && (
+      {isShortcutPopUpOpen && (
         <ShortcutPopUp
-          changeOpen={setIsAddShortcutOpen}
+          changeOpen={setIsShortcutPopUpOpen}
           setShortcuts={setShortcuts}
+          defaultValue={defaultValue}
         />
       )}
     </div>
-  );
+  )
 }

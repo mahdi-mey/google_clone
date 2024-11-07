@@ -3,7 +3,11 @@ import { useState, useRef, useEffect } from "react"
 import { BiDotsVerticalRounded } from "react-icons/bi"
 import EditOrRemoveShortcut from "./EditOrRemoveShortcut"
 
-export default function Shortcut({ shrtct, setShortcuts }) {
+export default function Shortcut({
+  shrtct,
+  setShortcuts,
+  setIsShortcutPopUpOpen,
+}) {
   const [isEditOpen, setIsEditOpen] = useState(false)
   const editRef = useRef(null)
 
@@ -66,7 +70,12 @@ export default function Shortcut({ shrtct, setShortcuts }) {
       />
       {isEditOpen && (
         <div ref={editRef}>
-          <EditOrRemoveShortcut shrtct={shrtct} setShortcuts={setShortcuts} />
+          <EditOrRemoveShortcut
+            shrtct={shrtct}
+            setShortcuts={setShortcuts}
+            setIsShortcutPopUpOpen={setIsShortcutPopUpOpen}
+            setIsEditOpen={setIsEditOpen}
+          />
         </div>
       )}
     </a>
