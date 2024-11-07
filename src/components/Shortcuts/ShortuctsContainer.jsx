@@ -29,7 +29,6 @@ export default function ShortcutsContainer() {
         <ShortcutPopUp
           changeOpen={setIsShortcutPopUpOpen}
           setShortcuts={setShortcuts}
-          defaultValue={defaultValue}
         />
       )}
     </div>
