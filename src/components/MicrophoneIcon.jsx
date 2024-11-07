@@ -7,7 +7,6 @@ import { useEffect, useState } from "react"
 import { BsFillMicFill } from "react-icons/bs"
 import Loader from "@/components/Loader/Loader"
 import { useRouter } from "next/navigation"
-import NoMicSupport from "./Alert/NoMicSupport"
 import MicNotAllowed from "./Alert/MicNotAllowed"
 
 export default function MicrophoneIcon() {
@@ -15,10 +14,6 @@ export default function MicrophoneIcon() {
   const [canSearch, setCanSearch] = useState(false)
   const [isMicrophoneGranted, setIsMicrophoneGranted] = useState(null)
   const [showAlert, setShowAlert] = useState(false)
-
-  function timeout(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms))
-  }
 
   const {
     transcript,
@@ -29,7 +24,6 @@ export default function MicrophoneIcon() {
 
   async function listenHandler() {
     if (isMicrophoneGranted === null) {
-      // Check for microphone permission when the button is clicked
       await checkMicrophonePermission()
     }
 
@@ -43,13 +37,12 @@ export default function MicrophoneIcon() {
       setCanSearch(true)
     } else {
       console.log("you have denied access to your microphone")
-      setShowAlert(true) // Show the alert if access is denied
+      setShowAlert(true)
     }
   }
 
   const checkMicrophonePermission = async () => {
     if (!navigator.permissions || !navigator.permissions.query) {
-      // Permissions API is not supported
       setIsMicrophoneGranted(false)
       return
     }
@@ -58,29 +51,19 @@ export default function MicrophoneIcon() {
       const permissionStatus = await navigator.permissions.query({
         name: "microphone",
       })
-
-      // Set true for granted, false for denied, or null for prompt or error
       setIsMicrophoneGranted(permissionStatus.state === "granted")
 
-      // Optionally, listen for changes in permission
       permissionStatus.onchange = () => {
         setIsMicrophoneGranted(permissionStatus.state === "granted")
       }
     } catch (error) {
       console.error("Error checking microphone permission:", error)
-      setIsMicrophoneGranted(false) // Treat errors as denied
+      setIsMicrophoneGranted(false)
     }
   }
 
   useEffect(() => {
-    if (!browserSupportsSpeechRecognition) {
-      return <NoMicSupport />
-    }
-  }, [browserSupportsSpeechRecognition])
-
-  useEffect(() => {
-    if (canSearch) {
-      if (!transcript) return
+    if (canSearch && transcript) {
       router.push(`/search/web?searchTerm=${transcript}`)
     }
   }, [transcript, canSearch, router])
