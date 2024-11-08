@@ -2,7 +2,7 @@ import SearchHeader from "@/components/SearchResults/SearchHeader";
 
 export default function layout({ children }) {
   return (
-    <main>
+    <main className="overflow-auto">
       <SearchHeader />
       <div>{children}</div>
     </main>
