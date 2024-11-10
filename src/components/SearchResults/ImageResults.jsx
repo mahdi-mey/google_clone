@@ -1,5 +1,5 @@
 import Link from "next/link"
-import PaginationButtons from "../PaginationButtons"
+import PaginationButtons from "@/components/SearchResults/PaginationButtons"
 import Image from "next/image"
 
 export default function ImageSearchResults({ results }) {
