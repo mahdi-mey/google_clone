@@ -7,8 +7,8 @@ import SearchHeaderOptions from "./SearchHeaderOptions"
 export default function SearchHeader() {
   return (
     <>
-      <header className="sticky top-0 px-2 flex flex-row items-center justify-center gap-1.5 bg-white py-3 sm:justify-around sm:gap-0">
-        <Link href="/">
+      <header className="sticky top-0 flex flex-row items-center justify-center gap-1.5 bg-white px-2 py-3 sm:justify-between sm:gap-0 sm:px-6">
+        <Link href="/" className="customMargin">
           <Image
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png"
             alt="Google Logo"
@@ -18,7 +18,7 @@ export default function SearchHeader() {
           />
         </Link>
         <SearchBox />
-        <button className="w-28 ml-2 rounded-lg bg-blue-500 px-3 py-1.5 font-bold text-white sm:px-7 sm:py-3 whitespace-nowrap">
+        <button className="ml-2 w-28 whitespace-nowrap rounded-lg bg-blue-500 px-3 py-1.5 font-bold text-white sm:px-7 sm:py-3">
           Sign In
         </button>
       </header>

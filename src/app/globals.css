@@ -23,6 +23,13 @@ body {
   }
 }
 
+/* this className is only used inside SearchHeader component on Link tag */
+@media only screen and (min-width: 1010px) {
+  .customMargin{
+  margin-right: 3rem;
+  }
+}
+
 .otln{
   outline: 1px solid red;
 }
