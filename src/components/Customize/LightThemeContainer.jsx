@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 export default function LightThemeContainer() {
   // State to track the currently selected pattern
@@ -6,7 +6,14 @@ export default function LightThemeContainer() {
 
   const changePattern = (newPattern) => {
     // Remove existing pattern classes
-    document.body.classList.remove("dots", "zig-zag", "paper")
+    document.body.classList.remove(
+      "dots",
+      "zig-zag",
+      "paper",
+      "stary-night",
+      "threeD-boxes",
+      "stairs",
+    )
 
     // Add the new pattern class if not null
     if (newPattern) {
