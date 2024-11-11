@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './LightPatterns.css'
 
 export default function LightThemeContainer() {
   // State to track the currently selected pattern

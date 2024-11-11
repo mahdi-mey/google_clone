@@ -34,136 +34,27 @@ body {
 }
 
 .selected {
-  position: relative; /* Necessary for positioning the pseudo-elements */
+  position: relative;
   transform: scale(0.9);
 }
 
 .selected::after {
-  content: "✓"; /* Check mark character */
+  content: "✓"; 
   width: 20px;
   height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -5px; /* Positioning from the top */
-  right: -5px; /* Positioning from the right */
-  color: white; /* Color of the check mark */
-  font-size: 15px; /* Size of the check mark */
-  background-color: green; /* Background color of the check mark */
-  border-radius: 50%; /* Optional: rounded background */
-  padding: 1px; /* Add some padding around the check mark */
+  top: -5px; 
+  right: -5px; 
+  color: white;
+  font-size: 15px;
+  background-color: green;
+  border-radius: 50%;
+  padding: 1px;
   padding-top: 2px;
   padding-right: 2px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional: add shadow for better visibility */
-  z-index: 1; /* Ensure the check mark is above other content */
-}
-
-/* light background patterns */
-.dots {
-  background-color: #e5e5f7;
-  background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px),
-    radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
-  background-size: 20px 20px;
-  background-position:
-    0 0,
-    10px 10px;
-}
-.zig-zag {
-  background: linear-gradient(45deg, #ffffff 25%, transparent 25%),
-    linear-gradient(315deg, #ffffff 25%, transparent 25%),
-    linear-gradient(
-      45deg,
-      transparent 24%,
-      #eeeeee 25%,
-      #eee 45%,
-      transparent 45%
-    ),
-    linear-gradient(
-      315deg,
-      transparent 24%,
-      #eee 25%,
-      #eee 45%,
-      transparent 45%
-    );
-  background-size: 6em 6em;
-  background-color: #ffffff;
-  opacity: 1;
-}
-.boxes {
-  background-color: #e5e5f7;
-  opacity: 0.8;
-  background-image: linear-gradient(#444cf7 1px, transparent 1px),
-    linear-gradient(to right, #444cf7 1px, #e5e5f7 1px);
-  background-size: 20px 20px;
-}
-.paper {
-  background-color: #fff;
-  background-image: linear-gradient(
-      90deg,
-      transparent 79px,
-      #abced4 79px,
-      #abced4 81px,
-      transparent 81px
-    ),
-    linear-gradient(#eee 0.1em, transparent 0.1em);
-  background-size: 100% 1.2em;
-}
-
-/* dark background patterns */
-.threeD-boxes {
-  --s: 109px; /* control the size*/
-  --c1: #1d1d1d;
-  --c2: #4e4f51;
-  --c3: #3c3c3c;
-
-  background:
-    repeating-conic-gradient(from 30deg, #0000 0 120deg, var(--c3) 0 50%)
-      calc(var(--s) / 2) calc(var(--s) * tan(30deg) / 2),
-    repeating-conic-gradient(
-      from 30deg,
-      var(--c1) 0 60deg,
-      var(--c2) 0 120deg,
-      var(--c3) 0 50%
-    );
-  background-size: var(--s) calc(var(--s) * tan(30deg));
-}
-.stary-night {
-  background-color: black;
-  background-image: radial-gradient(
-      white,
-      rgba(255, 255, 255, 0.2) 2px,
-      transparent 40px
-    ),
-    radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 30px),
-    radial-gradient(white, rgba(255, 255, 255, 0.1) 2px, transparent 40px),
-    radial-gradient(
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.1) 2px,
-      transparent 30px
-    );
-  background-size:
-    550px 550px,
-    350px 350px,
-    250px 250px,
-    150px 150px;
-  background-position:
-    0 0,
-    40px 60px,
-    130px 270px,
-    70px 100px;
-}
-.stairs {
-  background:
-    linear-gradient(63deg, #444 23%, transparent 23%) 7px 0,
-    linear-gradient(63deg, transparent 74%, #444 78%),
-    linear-gradient(
-      63deg,
-      transparent 34%,
-      #444 38%,
-      #444 58%,
-      transparent 62%
-    ),
-    #222; /* Darker base color */
-  background-size: 16px 48px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }

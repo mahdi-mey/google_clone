@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "./DarkPatterns.css"
 
 export default function DarkThemeContainer() {
   // State to track the currently selected pattern
