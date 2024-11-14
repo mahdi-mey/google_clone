@@ -5,7 +5,7 @@ export default function CustomizeButton({setIsCustomizeOpen}) {
   return (
     <button
       onClick={() => setIsCustomizeOpen(true)}
-      className="mr-8 flex items-center justify-end gap-3 rounded-2xl bg-[--primary-color] px-6 py-1 text-right text-white"
+      className="mr-8 flex items-center justify-end gap-3 rounded-2xl bg-primary px-6 py-1 text-right text-scene"
     >
       <BiPencil /> Customize
     </button>

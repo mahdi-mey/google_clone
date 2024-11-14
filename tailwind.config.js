@@ -8,8 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: "var(--primary-color)",
+        scene: "var(--scene-color)",
+        muted: "var(--muted-color)",
+        searchBg: "var(--search-bg)",
+        mainText: "var(--text-color-main)",
+        invertedText: "var(--text-color-inverted)",
+        lightText: "var(--text-color-light)",
+        shadowColor: "var(--shadow-color)"
       },
     },
   },

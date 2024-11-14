@@ -8,7 +8,7 @@ import { AnimatePresence } from "framer-motion"
 export default function MainFooter() {
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false)
   return (
-    <footer className="absolute bottom-0 left-0 right-0 flex items-center justify-between bg-gray-200 py-2">
+    <footer className="absolute bottom-0 left-0 right-0 flex items-center justify-between bg-searchBg shadow-xl outline outline-1 outline-gray-300/70 py-2">
       <UserCountry />
       <CustomizeButton setIsCustomizeOpen={setIsCustomizeOpen} />
       <AnimatePresence>

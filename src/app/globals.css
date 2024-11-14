@@ -2,19 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --primary-color: #3b82f6;
-  --background: #ffffff;
-  --foreground: #171717;
-  --text-color-1: rgb(43, 41, 41);
-  --text-color-2: rgb(84, 84, 84);
+/* define default colors for theme */
+@layer base{
+  :root{
+    
+  }
 }
 
+/* 
+--primary-color: button background,
+--scene-color: body background
+--muted-color: 
+--search-bg: background for search input
+--text-color-main: 
+--text-color-inverted: 
+--text-color-light: 
+--shadow-color: 
+*/
+
+:root {
+  --primary-color: rgb(41, 141, 255);
+  --scene-color: hsl(0, 0%, 100%);
+  --muted-color: rgb(209, 213, 219);
+  --search-bg: rgb(249, 250, 251);
+  --text-color-main: hsl(0, 0%, 100%);
+  --text-color-inverted: hsl(0, 0%, 9%);
+  --text-color-light: hsl(0, 0%, 33%);
+  --shadow-color: black;
+}
+
+/* accent color */
+/* --secondary-color: hsl(0, 0%, 9%); */
+
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  overflow: hidden;
 }
 
 @layer utilities {
