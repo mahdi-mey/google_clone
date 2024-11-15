@@ -1,9 +1,22 @@
 import { useState } from "react"
-import './LightPatterns.css'
+import "./LightPatterns.css"
 
 export default function LightThemeContainer() {
   // State to track the currently selected pattern
   const [selectedPattern, setSelectedPattern] = useState("default")
+
+  const changeTheme = (newTheme) => {
+    document.body.classList.remove(
+      "theme-red",
+      "theme-yellow",
+      "theme-green",
+    )
+    if (newTheme) {
+      document.body.classList.add(newTheme)
+    } else {
+      return null
+    }
+  }
 
   const changePattern = (newPattern) => {
     // Remove existing pattern classes
@@ -19,9 +32,9 @@ export default function LightThemeContainer() {
     // Add the new pattern class if not null
     if (newPattern) {
       document.body.classList.add(newPattern)
-      setSelectedPattern(newPattern) // Update state to reflect selected pattern
+      setSelectedPattern(newPattern)
     } else {
-      setSelectedPattern("default") // Default selection when no pattern is selected
+      setSelectedPattern("default")
     }
   }
 
@@ -31,10 +44,22 @@ export default function LightThemeContainer() {
         <h1 className="my-2.5 text-lg text-white">Theme</h1>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-7">
           {/* Example of area for theme colors */}
-          <div className="h-14 w-32 cursor-pointer rounded-sm bg-green-300 shadow-current transition-all duration-200 hover:shadow-xl active:scale-90"></div>
-          <div className="h-14 w-32 cursor-pointer rounded-sm bg-green-300 shadow-current transition-all duration-200 hover:shadow-xl active:scale-90"></div>
-          <div className="h-14 w-32 cursor-pointer rounded-sm bg-green-300 shadow-current transition-all duration-200 hover:shadow-xl active:scale-90"></div>
-          <div className="h-14 w-32 cursor-pointer rounded-sm bg-green-300 shadow-current transition-all duration-200 hover:shadow-xl active:scale-90"></div>
+          <div
+            onClick={() => changeTheme(null)}
+            className={`h-14 w-32 cursor-pointer rounded-sm bg-[#298dff] shadow-current transition-all duration-200 hover:shadow-xl active:scale-90`}
+          ></div>
+          <div
+            onClick={() => changeTheme("theme-red")}
+            className={`h-14 w-32 cursor-pointer rounded-sm bg-[#db4437] shadow-current transition-all duration-200 hover:shadow-xl active:scale-90`}
+          ></div>
+          <div
+            onClick={() => changeTheme("theme-yellow")}
+            className={`h-14 w-32 cursor-pointer rounded-sm bg-[#f4b400] shadow-current transition-all duration-200 hover:shadow-xl active:scale-90`}
+          ></div>
+          <div
+            onClick={() => changeTheme("theme-green")}
+            className={`h-14 w-32 cursor-pointer rounded-sm bg-[#0f9d58] shadow-current transition-all duration-200 hover:shadow-xl active:scale-90`}
+          ></div>
         </div>
       </div>
       <div className="mt-5">
