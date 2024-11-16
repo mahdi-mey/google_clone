@@ -1,24 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./LightPatterns.css"
+import PatternOption from "./PatternOption"
 
 export default function LightThemeContainer() {
   const [selectedPattern, setSelectedPattern] = useState("default")
-  const [selectedTheme, setSelectedTheme] = useState("default")
-
-  const changeTheme = (newTheme) => {
-    document.body.classList.remove(
-      "default",
-      "theme-red",
-      "theme-yellow",
-      "theme-green",
-    )
-    if (newTheme) {
-      document.body.classList.add(newTheme)
-      setSelectedTheme(newTheme)
-    } else {
-      setSelectedTheme(null)
-    }
-  }
 
   const changePattern = (newPattern) => {
     // Remove existing pattern classes
@@ -40,35 +25,44 @@ export default function LightThemeContainer() {
     }
   }
 
+  useEffect(() => {
+    console.log("Light theme container mounted")
+    changeTheme("default")
+    changePattern("default")
+  }, [])
+
   return (
     <div className="flex flex-grow flex-col">
       <div>
-        <h1 className="my-2.5 text-lg text-white">Theme</h1>
+        <h1 className="my-2.5 text-lg text-white">Themes</h1>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-7">
-          {/* Example of area for theme colors */}
-          <div
-            onClick={() => changeTheme(null)}
-            className={`h-14 w-32 cursor-pointer rounded-sm bg-[#298dff] shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedTheme === "default" ? "selected" : ""}`}
-          ></div>
-          <div
-            onClick={() => changeTheme("theme-red")}
-            className={`h-14 w-32 cursor-pointer rounded-sm bg-[#db4437] shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedTheme === "theme-red" ? "selected" : ""}`}
-          ></div>
-          <div
-            onClick={() => changeTheme("theme-yellow")}
-            className={`h-14 w-32 cursor-pointer rounded-sm bg-[#f4b400] shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedTheme === "theme-yellow" ? "selected" : ""}`}
-          ></div>
-          <div
-            onClick={() => changeTheme("theme-green")}
-            className={`h-14 w-32 cursor-pointer rounded-sm bg-[#0f9d58] shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedTheme === "theme-green" ? "selected" : ""}`}
-          ></div>
+          <PatternOption 
+          from="bg-muted"
+          to="bg-[#298dff]" 
+          fnParam="default"
+          />
+          <PatternOption
+            from="bg-muted"
+            to="bg-[#db4437]"
+            fnParam="theme-red"
+          />
+          <PatternOption
+            from="bg-muted"
+            to="bg-[#f4b400]"
+            fnParam="theme-yellow"
+          />
+          <PatternOption
+            from="bg-muted"
+            to="bg-[#0f9d58]"
+            fnParam="theme-green"
+          />
         </div>
       </div>
       <div className="mt-5">
-        <h1 className="my-2.5 text-lg text-white">Background Image</h1>
+        <h1 className="my-2.5 text-lg text-white">Background Images</h1>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-7">
           <div
-            onClick={() => changePattern(null)}
+            onClick={() => changePattern("default")}
             className={`flex h-14 w-32 cursor-pointer items-center justify-center rounded-sm bg-white text-center shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedPattern === "default" ? "selected" : ""}`}
           >
             Default

@@ -20,7 +20,7 @@ export default function MainHeader() {
       </a>
       <button
         onClick={() => signIn("google")}
-        className="rounded-lg bg-primary px-3 py-1.5 font-bold text-scene sm:px-7 sm:py-3 hover:shadow-lg transition-all"
+        className="rounded-lg bg-primary px-3 py-1.5 font-bold sm:px-7 sm:py-3 hover:shadow-lg transition-all text-mainText"
       >
         Sign In
       </button>
