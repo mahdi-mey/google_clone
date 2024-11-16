@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         primary: "var(--primary-color)",
+        secondary: "var(--secondary-color)",
         scene: "var(--scene-color)",
         muted: "var(--muted-color)",
         searchBg: "var(--search-bg)",

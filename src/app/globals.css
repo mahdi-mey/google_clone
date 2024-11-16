@@ -10,18 +10,20 @@
 }
 
 /* 
---primary-color: button background,
---scene-color: body background
---muted-color: 
---search-bg: background for search input
---text-color-main: 
---text-color-inverted: 
---text-color-light: 
---shadow-color: 
+  --primary-color: button background,
+  --secondary-color: only for background color of dots pattern
+  --scene-color: body background
+  --muted-color: 
+  --search-bg: background for search input
+  --text-color-main: 
+  --text-color-inverted: 
+  --text-color-light: 
+  --shadow-color: 
 */
 
 :root {
   --primary-color: rgb(41, 141, 255);
+  --secondary-color: rgb(229, 229, 247);
   --scene-color: hsl(0, 0%, 100%);
   --muted-color: rgb(209, 213, 219);
   --search-bg: rgb(249, 250, 251);
@@ -33,13 +35,16 @@
 
 .theme-red{
   --primary-color: rgb(219, 68, 55);
+  --secondary-color: rgb(247, 229, 229);
 }
 
 .theme-yellow{
   --primary-color: rgb(244, 180, 0);
+  --secondary-color: rgb(247, 247, 229);
 }
 .theme-green{
   --primary-color: rgb(15, 157, 88);
+  --secondary-color: rgb(229, 247, 230);
 }
 
 
