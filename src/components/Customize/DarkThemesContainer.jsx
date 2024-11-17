@@ -5,7 +5,7 @@ import PatternOption from "./PatternOption"
 export default function DarkThemeContainer() {
   // State to track the currently selected pattern
   const [selectedPattern, setSelectedPattern] = useState("default")
-  const [selectedTheme, setSelectedTheme] = useState("default")
+  const [selectedTheme, setSelectedTheme] = useState("default-dark")
 
   const changeTheme = (newTheme) => {
     document.body.classList.remove(

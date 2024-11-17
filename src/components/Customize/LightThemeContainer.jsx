@@ -1,12 +1,12 @@
 import { useState } from "react"
 import "./LightPatterns.css"
 import PatternOption from "./PatternOption"
-import { changeTheme } from "./changeThemeFn"
-import { changePattern } from "./changePatternFn"
+// import { changeTheme } from "./changeThemeFn"
+// import { changePattern } from "./changePatternFn"
 
 export default function LightThemeContainer() {
   const [selectedPattern, setSelectedPattern] = useState("default")
-  const [selectedTheme, setSelectedTheme] = useState("default")
+  const [selectedTheme, setSelectedTheme] = useState("default-light")
 
   const changeTheme = (newTheme) => {
     // Remove existing theme classes

@@ -1,4 +1,4 @@
-import { AiOutlineClose } from "react-icons/ai"; 
+import { AiOutlineClose } from "react-icons/ai"
 import { motion } from "framer-motion"
 import ToggleSwitches from "./ToggleSwitches"
 import { useEffect, useState } from "react"
@@ -40,7 +40,7 @@ export default function CustomizeScreen({ setIsCustomizeOpen }) {
         {/* close modal icon on small screens */}
         <AiOutlineClose
           onClick={() => setIsCustomizeOpen(false)}
-          className="text-xlg absolute bottom-7 right-8 flex size-7 cursor-pointer items-center justify-center rounded-sm bg-gray-400 p-1 text-red-500"
+          className="text-xlg absolute bottom-7 right-8 flex size-7 cursor-pointer items-center justify-center rounded-sm bg-gray-400 p-1 text-red-500 sm:hidden"
         />
         <ToggleSwitches
           selectedTheme={selectedTheme}
