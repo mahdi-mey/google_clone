@@ -80,7 +80,7 @@ export default function MicrophoneIcon() {
       ) : (
         <BsFillMicFill
           onClick={listenHandler}
-          className="cursor-pointer text-lg text-gray-600 transition-all duration-200 active:scale-75"
+          className="text-mutedText cursor-pointer text-lg text-gray-600 transition-all duration-200 active:scale-75"
         />
       )}
     </>

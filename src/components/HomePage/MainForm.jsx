@@ -51,7 +51,7 @@ export default function MainForm() {
           onChange={(e) => setInputValue(e.target.value)}
           className="flex-grow bg-searchBg focus:outline-none"
         />
-        <MicrophoneIcon className="text-mutedText" />
+        <MicrophoneIcon />
       </form>
     </>
   )
