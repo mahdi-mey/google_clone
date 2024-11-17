@@ -17,7 +17,7 @@
   background-size: var(--s) calc(var(--s) * tan(30deg));
 }
 .stary-night {
-  background-color: black;
+  background-color: #131313;
   background-image: radial-gradient(
       white,
       rgba(255, 255, 255, 0.2) 2px,
@@ -40,6 +40,41 @@
     40px 60px,
     130px 270px,
     70px 100px;
+}
+.stary-night-for-div{
+  background-color: #131313;
+
+  /* Multiple radial gradients with randomness */
+  background-image: radial-gradient(
+      white,
+      rgba(255, 255, 255, 0.2) 2px,
+      transparent 10px
+    ),
+    radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 12px),
+    radial-gradient(white, rgba(255, 255, 255, 0.1) 1.5px, transparent 15px),
+    radial-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1) 2px,
+      transparent 12px
+    );
+
+  /* Smaller random sizes for a more scattered effect */
+  background-size: 100px 100px,
+                   70px 70px,
+                   50px 50px,
+                   30px 30px;
+
+  /* Randomized background positions */
+  background-position: 
+      20% 30%,    /* First gradient */
+      50% 10%,    /* Second gradient */
+      80% 60%,    /* Third gradient */
+      10% 20%;    /* Fourth gradient */
+  
+  /* Adding some variation for more stars */
+  background-repeat: no-repeat; /* Ensures each star position is unique */
+  opacity: 0.9; /* Adjust opacity for better visibility and blending */
+
 }
 .stairs {
   background:
