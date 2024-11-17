@@ -1,30 +1,19 @@
-import React, { useState } from "react"
+import React from "react"
 
-export default function PatternOption({ from, to, fnParam }) {
-  const [selectedTheme, setSelectedTheme] = useState("default")
-
-  const changeTheme = (newTheme) => {
-    document.body.classList.remove(
-      "default",
-      "theme-red",
-      "theme-yellow",
-      "theme-green",
-    )
-    if (newTheme) {
-      document.body.classList.add(newTheme)
-      setSelectedTheme(newTheme)
-    } else {
-      setSelectedTheme(null)
-    }
-  }
-
+export default function PatternOption({
+  from,
+  to,
+  fnParam,
+  isSelected,
+  onSelect,
+}) {
   return (
     <div
-      className={`relative flex h-14 w-32 cursor-pointer rounded-md border border-none bg-transparent p-0 shadow-current outline-none transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedTheme === fnParam ? 'selected' : ''}`}
-      onClick={() => changeTheme(fnParam)}
+      className={`relative flex h-14 w-32 cursor-pointer rounded-md border border-none bg-transparent p-0 shadow-current outline-none transition-all duration-200 hover:shadow-xl active:scale-90 ${isSelected ? "selected" : ""}`}
+      onClick={() => onSelect(fnParam)}
     >
-      <div className={`flex-1 h-full ${from}`}></div>
-      <div className={`flex-1 h-full ${to}`}></div>
+      <div className={`h-full flex-1 rounded-l-md ${from}`}></div>
+      <div className={`h-full flex-1 rounded-r-md ${to}`}></div>
     </div>
   )
 }
