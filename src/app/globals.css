@@ -4,9 +4,17 @@
 
 /* define default colors for theme */
 @layer base{
-  :root{
-    
-  }
+  :root {
+  --primary-color: rgb(41, 141, 255);
+  --secondary-color: rgb(229, 229, 247);
+  --scene-color: hsl(0, 0%, 100%);
+  --muted-color: rgb(234, 237, 241);
+  --search-bg: rgb(249, 250, 251);
+  --text-color-main: hsl(0, 0%, 100%);
+  --text-color-inverted: hsl(0, 0%, 9%);
+  --text-color-light: hsl(0, 0%, 33%);
+  --shadow-color: rgb(0, 0, 0, 0.2);
+}
 }
 
 /* 
@@ -20,18 +28,6 @@
   --text-color-light: 
   --shadow-color: 
 */
-
-:root {
-  --primary-color: rgb(41, 141, 255);
-  --secondary-color: rgb(229, 229, 247);
-  --scene-color: hsl(0, 0%, 100%);
-  --muted-color: rgb(234, 237, 241);
-  --search-bg: rgb(249, 250, 251);
-  --text-color-main: hsl(0, 0%, 100%);
-  --text-color-inverted: hsl(0, 0%, 9%);
-  --text-color-light: hsl(0, 0%, 33%);
-  --shadow-color: rgb(0, 0, 0, 0.2);
-}
 
 .theme-red{
   --primary-color: rgb(219, 68, 55);

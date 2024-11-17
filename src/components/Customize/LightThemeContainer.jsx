@@ -1,54 +1,22 @@
 import { useState } from "react"
 import "./LightPatterns.css"
 import PatternOption from "./PatternOption"
-// import { changeTheme } from "./changeThemeFn"
-// import { changePattern } from "./changePatternFn"
+import { changeTheme } from "./changeThemeFn"
+import { changePattern } from "./changePatternFn"
 
 export default function LightThemeContainer() {
   const [selectedPattern, setSelectedPattern] = useState("default")
   const [selectedTheme, setSelectedTheme] = useState("default-light")
 
-  const changeTheme = (newTheme) => {
-    // Remove existing theme classes
-    document.body.classList.remove(
-      // light themes
-      "default-light",
-      "theme-red",
-      "theme-yellow",
-      "theme-green",
-      // dark themes
-      "default-dark",
-      "theme-dark-red",
-      "theme-dark-green",
-      "theme-dark-yellow",
-    )
-    if (newTheme) {
-      document.body.classList.add(newTheme)
-      setSelectedTheme(newTheme)
-    } else {
-      setSelectedTheme("default")
-    }
+  const handleChangeTheme = (newTheme) => {
+    const updatedTheme = changeTheme(newTheme)
+    setSelectedTheme(updatedTheme)
   }
 
-   const changePattern = (newPattern) => {
-     // Remove existing pattern classes
-     document.body.classList.remove(
-       "dots",
-       "zig-zag",
-       "paper",
-       "stary-night",
-       "threeD-boxes",
-       "stairs",
-     )
-
-     // Add the new pattern class if not null
-     if (newPattern) {
-       document.body.classList.add(newPattern)
-       setSelectedPattern(newPattern)
-     } else {
-       setSelectedPattern("default")
-     }
-   }
+  const handleChangePattern = (newPattern) => {
+    const updatedPattern = changePattern(newPattern)
+    setSelectedPattern(updatedPattern)
+  }
 
   return (
     <div className="flex flex-grow flex-col">

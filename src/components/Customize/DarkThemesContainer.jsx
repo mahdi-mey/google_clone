@@ -1,51 +1,22 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import "./DarkPatterns.css"
 import PatternOption from "./PatternOption"
+import { changePattern } from "./changePatternFn"
+import { changeTheme } from "./changeThemeFn"
 
 export default function DarkThemeContainer() {
   // State to track the currently selected pattern
   const [selectedPattern, setSelectedPattern] = useState("default")
   const [selectedTheme, setSelectedTheme] = useState("default-dark")
 
-  const changeTheme = (newTheme) => {
-    document.body.classList.remove(
-      // light themes
-      "default-light",
-      "theme-red",
-      "theme-yellow",
-      "theme-green",
-      // dark themes
-      "default-dark",
-      "theme-dark-red",
-      "theme-dark-green",
-      "theme-dark-yellow",
-    )
-    if (newTheme) {
-      document.body.classList.add(newTheme)
-      setSelectedTheme(newTheme)
-    } else {
-      setSelectedTheme(null)
-    }
+  const handleChangeTheme = (newTheme) => {
+    const updatedTheme = changeTheme(newTheme)
+    setSelectedTheme(updatedTheme)
   }
 
-  const changePattern = (newPattern) => {
-    // Remove existing pattern classes
-    document.body.classList.remove(
-      "stary-night",
-      "threeD-boxes",
-      "dots",
-      "zig-zag",
-      "paper",
-      "stairs",
-    )
-
-    // Add the new pattern class if not null
-    if (newPattern) {
-      document.body.classList.add(newPattern)
-      setSelectedPattern(newPattern) // Update state to reflect selected pattern
-    } else {
-      setSelectedPattern("default") // Default selection when no pattern is selected
-    }
+  const handleChangePattern = (newPattern) => {
+    const updatedPattern = changePattern(newPattern)
+    setSelectedPattern(updatedPattern)
   }
 
   return (
