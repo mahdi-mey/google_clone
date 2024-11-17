@@ -25,7 +25,7 @@
   --primary-color: rgb(41, 141, 255);
   --secondary-color: rgb(229, 229, 247);
   --scene-color: hsl(0, 0%, 100%);
-  --muted-color: rgb(209, 213, 219);
+  --muted-color: rgb(234, 237, 241);
   --search-bg: rgb(249, 250, 251);
   --text-color-main: hsl(0, 0%, 100%);
   --text-color-inverted: hsl(0, 0%, 9%);
@@ -45,6 +45,54 @@
 .theme-green{
   --primary-color: rgb(15, 157, 88);
   --secondary-color: rgb(229, 247, 230);
+}
+
+.default-dark {
+ --primary-color: rgb(41, 141, 255);
+  --secondary-color: rgb(50, 50, 50);
+  --scene-color: rgb(20, 20, 20);
+  --muted-color: rgb(30, 30, 30);
+  --search-bg: rgb(35, 35, 35);
+  --text-color-main: hsl(0, 0%, 90%);
+  --text-color-inverted: hsl(0, 0%, 20%);
+  --text-color-light: hsl(0, 0%, 60%);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+.theme-dark-red {
+  --primary-color: rgb(150, 30, 30);    
+  --secondary-color: rgb(255, 204, 204);
+  --scene-color: rgb(25, 25, 25);
+  --muted-color: rgb(35, 35, 35);
+  --search-bg: rgb(30, 30, 30);
+  --text-color-main: hsl(0, 90%, 85%);
+  --text-color-inverted: hsl(0, 90%, 20%);
+  --text-color-light: hsl(0, 90%, 50%);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+.theme-dark-green {
+  --primary-color: rgb(34, 139, 34);
+  --secondary-color: rgb(144, 238, 144);
+  --scene-color: rgb(20, 20, 20);
+  --muted-color: rgb(30, 30, 30);
+  --search-bg: rgb(35, 40, 35);
+  --text-color-main: hsl(120, 80%, 90%);
+  --text-color-inverted: hsl(120, 80%, 20%);
+  --text-color-light: hsl(120, 80%, 50%);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+.theme-dark-yellow {
+  --primary-color: rgb(255, 215, 0); 
+  --secondary-color: rgb(255, 255, 204);
+  --scene-color: rgb(25, 25, 25); 
+  --muted-color: rgb(35, 35, 35);
+  --search-bg: rgb(40, 40, 40);
+  --text-color-main: hsl(50, 100%, 90%);
+  --text-color-inverted: hsl(50, 100%, 20%);
+  --text-color-light: hsl(50, 100%, 50%);
+  --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 
