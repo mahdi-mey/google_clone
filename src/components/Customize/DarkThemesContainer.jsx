@@ -1,6 +1,6 @@
 import "./DarkPatterns.css"
 import ThemeOption from "./ThemeOption"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { changePattern } from "./changePatternFn"
 import { changeTheme } from "./changeThemeFn"
 
@@ -18,6 +18,11 @@ export default function DarkThemeContainer() {
     const updatedPattern = changePattern(newPattern)
     setSelectedPattern(updatedPattern)
   }
+
+  useEffect(() => {
+    handleChangeTheme('default-dark')
+    handleChangePattern('default')
+  }, [])
 
   return (
     <div className="flex flex-grow flex-col">

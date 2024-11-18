@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./LightPatterns.css"
 import ThemeOption from "./ThemeOption"
 import { changeTheme } from "./changeThemeFn"
@@ -18,6 +18,11 @@ export default function LightThemeContainer() {
     setSelectedPattern(updatedPattern)
   }
 
+  useEffect(() => {
+    handleChangeTheme("default-light")
+    handleChangePattern("default")
+  }, [])
+
   return (
     <div className="flex flex-grow flex-col">
       <div>
@@ -28,28 +33,28 @@ export default function LightThemeContainer() {
             to="bg-[#298dff]"
             fnParam="default-light"
             isSelected={selectedTheme === "default-light"}
-            onSelect={handleChangePattern}
+            onSelect={handleChangeTheme}
           />
           <ThemeOption
             from="bg-gray-200"
             to="bg-[#db4437]"
             fnParam="theme-red"
             isSelected={selectedTheme === "theme-red"}
-            onSelect={handleChangePattern}
+            onSelect={handleChangeTheme}
           />
           <ThemeOption
             from="bg-gray-200"
             to="bg-[#0f9d58]"
             fnParam="theme-green"
             isSelected={selectedTheme === "theme-green"}
-            onSelect={handleChangePattern}
+            onSelect={handleChangeTheme}
           />
           <ThemeOption
             from="bg-gray-200"
             to="bg-[#f4b400]"
             fnParam="theme-yellow"
             isSelected={selectedTheme === "theme-yellow"}
-            onSelect={handleChangePattern}
+            onSelect={handleChangeTheme}
           />
         </div>
       </div>
