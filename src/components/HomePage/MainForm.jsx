@@ -39,17 +39,17 @@ export default function MainForm() {
       {showNoInternet && <NoInternet />}
       <form
         onSubmit={handleSubmit}
-        className="border-muted mx-auto mt-5 flex w-full max-w-[90%] rounded-full border bg-searchBg px-5 py-3 transition-shadow focus-within:shadow-md hover:shadow-md sm:max-w-xl lg:max-w-2xl shadow-shadowColor"
+        className="border-muted mx-auto mt-5 flex w-full max-w-[90%] rounded-full border bg-muted px-5 py-3 transition-shadow focus-within:shadow-md hover:shadow-md sm:max-w-xl lg:max-w-2xl shadow-shadowColor"
       >
         <AiOutlineSearch
           onClick={handleSubmit}
-          className="mr-3 cursor-pointer text-xl text-mutedText transition-all duration-200 active:scale-75"
+          className="mr-3 cursor-pointer text-xl text-lightText transition-all duration-200 active:scale-75"
         />
         <input
           type="text"
           autoFocus
           onChange={(e) => setInputValue(e.target.value)}
-          className="flex-grow bg-searchBg focus:outline-none"
+          className="flex-grow bg-muted focus:outline-none text-mainText"
         />
         <MicrophoneIcon />
       </form>

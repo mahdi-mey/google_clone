@@ -46,13 +46,13 @@
 .default-dark {
  --primary-color: rgb(41, 141, 255);
   --secondary-color: rgb(50, 50, 50);
-  --scene-color: rgb(20, 20, 20);
-  --muted-color: rgb(30, 30, 30);
+  --scene-color: rgb(18, 18, 22);
+  --muted-color: rgb(48, 49, 52);
   --search-bg: rgb(35, 35, 35);
   --text-color-main: hsl(0, 0%, 90%);
-  --text-color-inverted: hsl(0, 0%, 20%);
-  --text-color-light: hsl(0, 0%, 60%);
-  --shadow-color: rgba(0, 0, 0, 0.5);
+  --text-color-inverted: hsl(0, 0%, 89%);
+  --text-color-light: hsl(0, 0%, 83%);
+  --shadow-color: rgba(73, 73, 73, 0.5);
 }
 
 .theme-dark-red {
