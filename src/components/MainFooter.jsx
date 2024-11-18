@@ -14,7 +14,7 @@ export default function MainFooter() {
       JSON.stringify({
         selectedTab: "Light",
         selectedTheme: "default-Light",
-        selectedPatttern: "default",
+        selectedPattern: "default",
       }),
     )
   }, [])

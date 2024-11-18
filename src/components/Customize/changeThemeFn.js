@@ -15,6 +15,14 @@ export const changeTheme = (newTheme) => {
 
     if (newTheme) {
         document.body.classList.add(newTheme);
+
+        // Update localStorage with the new theme
+        const storedThemeDetails = localStorage.getItem("themeDetails");
+        const themeDetails = storedThemeDetails ? JSON.parse(storedThemeDetails) : {};
+
+        themeDetails.selectedTheme = newTheme;
+        localStorage.setItem("themeDetails", JSON.stringify(themeDetails));
+
         return newTheme; // Return the new theme for state update
     }
 

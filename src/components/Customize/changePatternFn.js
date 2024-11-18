@@ -12,6 +12,14 @@ export const changePattern = (newPattern) => {
     // Add the new pattern class if not null
     if (newPattern) {
         document.body.classList.add(newPattern);
+
+        // Update localStorage with the new pattern
+        const storedThemeDetails = localStorage.getItem("themeDetails");
+        const themeDetails = storedThemeDetails ? JSON.parse(storedThemeDetails) : {};
+
+        themeDetails.selectedPattern = newPattern;
+        localStorage.setItem("themeDetails", JSON.stringify(themeDetails));
+
         return newPattern; // Return the new pattern for state update
     }
 
