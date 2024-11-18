@@ -1,7 +1,7 @@
 import { AiOutlineClose } from "react-icons/ai"
 import { motion } from "framer-motion"
 import ToggleSwitches from "./ToggleSwitches"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import LightThemeContainer from "./LightThemeContainer"
 import DarkThemeContainer from "./DarkThemesContainer"
 
@@ -14,9 +14,9 @@ export default function CustomizeScreen({ setIsCustomizeOpen }) {
 
   const [selectedTheme, setSelectedTheme] = useState(initialTheme)
 
-  function closeModal() {
+  const closeModal = useCallback(() => {
     setIsCustomizeOpen(false)
-  }
+  }, [setIsCustomizeOpen])
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -30,7 +30,7 @@ export default function CustomizeScreen({ setIsCustomizeOpen }) {
     return () => {
       window.removeEventListener("keydown", handleKeyDown)
     }
-  }, [])
+  }, [closeModal])
 
   return (
     <motion.div
