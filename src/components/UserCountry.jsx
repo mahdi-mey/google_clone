@@ -26,5 +26,5 @@ export default function UserCountry() {
     getCountry();
   }, []);
 
-  return <h3 className="ml-4 text-mainText">{country}</h3>;
+  return <h3 className="ml-4 text-invertedText">{country}</h3>;
 }

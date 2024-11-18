@@ -6,7 +6,14 @@ import LightThemeContainer from "./LightThemeContainer"
 import DarkThemeContainer from "./DarkThemesContainer"
 
 export default function CustomizeScreen({ setIsCustomizeOpen }) {
-  const [selectedTheme, setSelectecThem] = useState("Light")
+  // Retrieve the previously selected theme from localStorage, or default to "Light"
+  const storedThemeDetails = localStorage.getItem("themeDetails")
+  const initialTheme = storedThemeDetails
+    ? JSON.parse(storedThemeDetails).selectedTab
+    : "Light"
+
+  const [selectedTheme, setSelectedTheme] = useState(initialTheme)
+
   function closeModal() {
     setIsCustomizeOpen(false)
   }
@@ -44,7 +51,7 @@ export default function CustomizeScreen({ setIsCustomizeOpen }) {
         />
         <ToggleSwitches
           selectedTheme={selectedTheme}
-          setSelectecThem={setSelectecThem}
+          setSelectedTheme={setSelectedTheme}
         />
         {selectedTheme === "Light" ? (
           <LightThemeContainer />

@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <AuthProvider>
       <html lang="en">
-        <body className="flex h-dvh flex-col justify-between text-invertedText bg-scene overflow-hidden default-dark">
+        <body className="flex h-dvh flex-col justify-between text-invertedText bg-scene overflow-hidden default-light">
           {children}
         </body>
       </html>
