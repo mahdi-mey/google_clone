@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./LightPatterns.css"
-import PatternOption from "./PatternOption"
+import ThemeOption from "./ThemeOption"
 import { changeTheme } from "./changeThemeFn"
 import { changePattern } from "./changePatternFn"
 
@@ -23,33 +23,33 @@ export default function LightThemeContainer() {
       <div>
         <h1 className="my-2.5 text-lg text-white">Themes</h1>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-7">
-          <PatternOption
+          <ThemeOption
             from="bg-gray-200"
             to="bg-[#298dff]"
             fnParam="default-light"
             isSelected={selectedTheme === "default-light"}
-            onSelect={changeTheme}
+            onSelect={handleChangePattern}
           />
-          <PatternOption
+          <ThemeOption
             from="bg-gray-200"
             to="bg-[#db4437]"
             fnParam="theme-red"
             isSelected={selectedTheme === "theme-red"}
-            onSelect={changeTheme}
+            onSelect={handleChangePattern}
           />
-          <PatternOption
+          <ThemeOption
             from="bg-gray-200"
             to="bg-[#0f9d58]"
             fnParam="theme-green"
             isSelected={selectedTheme === "theme-green"}
-            onSelect={changeTheme}
+            onSelect={handleChangePattern}
           />
-          <PatternOption
+          <ThemeOption
             from="bg-gray-200"
             to="bg-[#f4b400]"
             fnParam="theme-yellow"
             isSelected={selectedTheme === "theme-yellow"}
-            onSelect={changeTheme}
+            onSelect={handleChangePattern}
           />
         </div>
       </div>
@@ -57,21 +57,21 @@ export default function LightThemeContainer() {
         <h1 className="my-2.5 text-lg text-white">Background Images</h1>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-7">
           <div
-            onClick={() => changePattern("default-light")}
+            onClick={() => handleChangePattern("default-light")}
             className={`flex h-14 w-32 cursor-pointer items-center justify-center rounded-sm bg-white text-center shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedPattern === "default" ? "selected" : ""}`}
           >
             Default
           </div>
           <div
-            onClick={() => changePattern("dots")}
+            onClick={() => handleChangePattern("dots")}
             className={`dots h-14 w-32 cursor-pointer rounded-sm shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedPattern === "dots" ? "selected" : ""}`}
           ></div>
           <div
-            onClick={() => changePattern("paper")}
+            onClick={() => handleChangePattern("paper")}
             className={`paper h-14 w-32 cursor-pointer rounded-sm shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedPattern === "paper" ? "selected" : ""}`}
           ></div>
           <div
-            onClick={() => changePattern("zig-zag")}
+            onClick={() => handleChangePattern("zig-zag")}
             className={`zig-zag h-14 w-32 cursor-pointer rounded-sm shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedPattern === "zig-zag" ? "selected" : ""}`}
           ></div>
         </div>
