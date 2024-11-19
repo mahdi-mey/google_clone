@@ -9,14 +9,32 @@ export default function MainFooter() {
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false)
 
   useEffect(() => {
-    window.localStorage.setItem(
-      "themeDetails",
-      JSON.stringify({
-        selectedTab: "Light",
-        selectedTheme: "default-Light",
-        selectedPattern: "default",
-      }),
-    )
+    try {
+      const themeDetails = localStorage.getItem("themeDetails")
+      const { selectedTab, selectedTheme, selectedPattern } = themeDetails
+        ? JSON.parse(themeDetails)
+        : {}
+
+      window.localStorage.setItem(
+        "themeDetails",
+        JSON.stringify({
+          selectedTab: selectedTab || "Light",
+          selectedTheme: selectedTheme || "default-Light",
+          selectedPattern: selectedPattern || "default",
+        }),
+      )
+    } catch (error) {
+      console.error("Error retrieving theme details from localStorage:", error)
+      // Optionally set default values in localStorage
+      window.localStorage.setItem(
+        "themeDetails",
+        JSON.stringify({
+          selectedTab: "Light",
+          selectedTheme: "default-Light",
+          selectedPattern: "default",
+        }),
+      )
+    }
   }, [])
 
   return (
