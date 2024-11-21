@@ -5,8 +5,10 @@ import { changeTheme } from "./changeThemeFn"
 import { changePattern } from "./changePatternFn"
 
 export default function LightThemeContainer() {
-  const [selectedPattern, setSelectedPattern] = useState("default")
   const [selectedTheme, setSelectedTheme] = useState("default-light")
+  const [selectedPattern, setSelectedPattern] = useState(
+    "default-light-pattern",
+  )
 
   const handleChangeTheme = (newTheme) => {
     const updatedTheme = changeTheme(newTheme)
@@ -20,7 +22,7 @@ export default function LightThemeContainer() {
 
   useEffect(() => {
     handleChangeTheme("default-light")
-    handleChangePattern("default")
+    handleChangePattern("default-light-pattern")
   }, [])
 
   return (
@@ -62,8 +64,8 @@ export default function LightThemeContainer() {
         <h1 className="my-2.5 text-lg text-white">Background Images</h1>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-7">
           <div
-            onClick={() => handleChangePattern("default-light")}
-            className={`flex h-14 w-32 cursor-pointer items-center justify-center rounded-sm bg-white text-center shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedPattern === "default" ? "selected" : ""}`}
+            onClick={() => handleChangePattern("default-light-pattern")}
+            className={`flex h-14 w-32 cursor-pointer items-center justify-center rounded-sm bg-white text-center shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedPattern === "default-light-pattern" ? "selected" : ""}`}
           >
             Default
           </div>

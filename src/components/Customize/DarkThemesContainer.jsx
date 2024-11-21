@@ -6,8 +6,8 @@ import { changeTheme } from "./changeThemeFn"
 
 export default function DarkThemeContainer() {
   // State to track the currently selected pattern
-  const [selectedPattern, setSelectedPattern] = useState("default")
   const [selectedTheme, setSelectedTheme] = useState("default-dark")
+  const [selectedPattern, setSelectedPattern] = useState("default-dark-pattern")
 
   const handleChangeTheme = (newTheme) => {
     const updatedTheme = changeTheme(newTheme)
@@ -20,8 +20,8 @@ export default function DarkThemeContainer() {
   }
 
   useEffect(() => {
-    handleChangeTheme('default-dark')
-    handleChangePattern('default')
+    handleChangeTheme("default-dark")
+    handleChangePattern("default-dark-pattern")
   }, [])
 
   return (
@@ -63,8 +63,8 @@ export default function DarkThemeContainer() {
         <h1 className="my-2.5 text-lg text-white">Background Image</h1>
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-7">
           <div
-            onClick={() => handleChangePattern("default")}
-            className={`flex h-14 w-32 cursor-pointer items-center justify-center rounded-sm bg-gray-800/80 text-center text-white shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedPattern === "default" ? "selected" : ""}`}
+            onClick={() => handleChangePattern("default-dark-pattern")}
+            className={`flex h-14 w-32 cursor-pointer items-center justify-center rounded-sm bg-gray-800/80 text-center text-white shadow-current transition-all duration-200 hover:shadow-xl active:scale-90 ${selectedPattern === "default-dark-pattern" ? "selected" : ""}`}
           >
             Default
           </div>

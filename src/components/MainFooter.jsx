@@ -4,6 +4,8 @@ import CustomizeButton from "./Customize/CustomizeButton"
 import CustomizeScreen from "./Customize/CustomizeScreen"
 import UserCountry from "./UserCountry"
 import { AnimatePresence } from "framer-motion"
+import { changePattern } from "./Customize/changePatternFn"
+import { changeTheme } from "./Customize/changeThemeFn"
 
 export default function MainFooter() {
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false)
@@ -23,6 +25,8 @@ export default function MainFooter() {
           selectedPattern: selectedPattern || "default",
         }),
       )
+      changeTheme(selectedTheme)
+      changePattern(selectedPattern)
     } catch (error) {
       console.error("Error retrieving theme details from localStorage:", error)
       // Optionally set default values in localStorage
