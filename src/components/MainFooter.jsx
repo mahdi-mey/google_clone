@@ -22,7 +22,7 @@ export default function MainFooter() {
         JSON.stringify({
           selectedTab: selectedTab || "Light",
           selectedTheme: selectedTheme || "default-Light",
-          selectedPattern: selectedPattern || "default",
+          selectedPattern: selectedPattern || "default-light-pattern",
         }),
       )
       changeTheme(selectedTheme)
@@ -35,7 +35,7 @@ export default function MainFooter() {
         JSON.stringify({
           selectedTab: "Light",
           selectedTheme: "default-Light",
-          selectedPattern: "default",
+          selectedPattern: "default-light-pattern",
         }),
       )
     }

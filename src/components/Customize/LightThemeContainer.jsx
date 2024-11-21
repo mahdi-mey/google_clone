@@ -21,8 +21,26 @@ export default function LightThemeContainer() {
   }
 
   useEffect(() => {
-    handleChangeTheme("default-light")
-    handleChangePattern("default-light-pattern")
+    const storedThemeDetails = localStorage.getItem("themeDetails")
+    const { selectedTheme, selectedPattern } = storedThemeDetails
+      ? JSON.parse(storedThemeDetails)
+      : {}
+
+    console.log(selectedTheme, selectedPattern)
+
+    if (
+      selectedTheme !== "default-light" &&
+      selectedTheme !== "theme-red" &&
+      selectedTheme !== "theme-green" &&
+      selectedTheme !== "theme-yellow"
+    ) {
+      handleChangeTheme("default-light")
+      handleChangePattern("default-light-pattern")
+    } else {
+      handleChangeTheme(selectedTheme)
+      handleChangePattern(selectedPattern)
+    }
+
   }, [])
 
   return (

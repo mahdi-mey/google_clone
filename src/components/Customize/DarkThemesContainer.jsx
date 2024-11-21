@@ -20,8 +20,26 @@ export default function DarkThemeContainer() {
   }
 
   useEffect(() => {
-    handleChangeTheme("default-dark")
-    handleChangePattern("default-dark-pattern")
+    const storedThemeDetails = localStorage.getItem("themeDetails")
+    const { selectedTheme, selectedPattern } = storedThemeDetails
+      ? JSON.parse(storedThemeDetails)
+      : {}
+
+    console.log(selectedTheme, selectedPattern)
+
+      if (
+        selectedTheme !== "default-dark"      &&
+        selectedTheme !== "theme-dark-red"    &&
+        selectedTheme !== "theme-dark-green"  &&
+        selectedTheme !== "theme-dark-yellow"
+      ) {
+        handleChangeTheme("default-dark")
+        handleChangePattern("default-dark-pattern")
+      } else {
+        handleChangeTheme(selectedTheme)
+        handleChangePattern(selectedPattern)
+      }
+
   }, [])
 
   return (
