@@ -5,12 +5,11 @@ import { motion } from "framer-motion"
 
 export default function ShortcutPopUp({ changeOpen, setShortcuts }) {
   const [nameInput, setNameInput] = useState("")
-  const [urlInput, setUrlInput] = useState("") // Fixed state update function name
+  const [urlInput, setUrlInput] = useState("")
 
   function addShortcut(e) {
-    e.preventDefault() // Prevent default form submission behavior
+    e.preventDefault()
     setShortcuts((prevValues) => {
-      console.log("inside setShortcuts function")
       return [...prevValues, { name: nameInput, url: urlInput }]
     })
     closeModal()
@@ -32,8 +31,8 @@ export default function ShortcutPopUp({ changeOpen, setShortcuts }) {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0, opacity: 0, transition: { duration: 0.1 } }}
         className="mx-auto flex h-72 w-full max-w-[512px] flex-col justify-evenly rounded-md bg-white px-3 shadow-lg shadow-shadowColor"
-        onClick={(e) => e.stopPropagation()} // Prevent clicks on the form from closing the modal
-        onSubmit={addShortcut} // Ensure addShortcut is the submit handler
+        onClick={(e) => e.stopPropagation()}
+        onSubmit={addShortcut}
       >
         <h2 className="text-invertedText">Add Shortcut</h2>
         <label
@@ -48,7 +47,7 @@ export default function ShortcutPopUp({ changeOpen, setShortcuts }) {
           name="shortcutName"
           id="shortcutName"
           value={nameInput}
-          onChange={(e) => setNameInput(e.target.value)} // Updated state for name input
+          onChange={(e) => setNameInput(e.target.value)}
           autoComplete="off"
           autoFocus
           maxLength={15}
@@ -65,20 +64,20 @@ export default function ShortcutPopUp({ changeOpen, setShortcuts }) {
           name="shortcutUrl"
           id="shortcutUrl"
           value={urlInput}
-          onChange={(e) => setUrlInput(e.target.value)} // Corrected state reference
+          onChange={(e) => setUrlInput(e.target.value)}
           autoComplete="off"
         />
 
         <div className="mr-1 flex items-center justify-end gap-3">
           <button
-            type="button" // Explicitly set type to button to avoid form submission
+            type="button"
             className="border-1 rounded-full border border-primary px-3 py-1.5 text-base text-primary transition-all duration-200 active:scale-90"
             onClick={closeModal}
           >
             Cancel
           </button>
           <button
-            type="submit" // Ensure this is a submit button
+            type="submit"
             className="rounded-full bg-primary px-3 py-1.5 text-base text-white transition-all duration-200 active:scale-90 disabled:cursor-not-allowed disabled:bg-gray-400"
             disabled={!canSubmit}
           >

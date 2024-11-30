@@ -1,25 +1,41 @@
 "use client"
-
 import { useState } from "react"
 import { motion } from "framer-motion"
-import AddShortcutPopUp from "./AddShortcutPopUp"
 
 export default function EditShortcutPopUp({
-  changeOpen,
-  setShortcuts,
+  setEditShortcut,
   shortcuts,
+  setShortcuts,
+  editShortcut,
 }) {
   const [nameInput, setNameInput] = useState("")
   const [urlInput, setUrlInput] = useState("")
 
-  console.log()
-
-  function editShortcut(e) {
+  function handleEditShortcut(e) {
     e.preventDefault()
+
+    // Get the index of the shortcut being edited
+    const selectedElement = editShortcut.element
+
+    if (selectedElement) {
+      const updatedShortcuts = shortcuts.map((shortcut) => {
+        if (shortcut.url === selectedElement.url) {
+          return { ...shortcut, name: nameInput, url: urlInput } // Update the name and URL
+        }
+        return shortcut // Return unmodified shortcut
+      })
+
+      setShortcuts(updatedShortcuts) // Update the shortcuts state with the new values
+      closeModal() // Close the modal after editing
+    }
   }
 
   function closeModal() {
-    changeOpen(false)
+    console.log("close editshortcut modal function ran")
+    setEditShortcut((prev) => {
+      const { element } = prev
+      return { status: "close", element: element }
+    })
   }
 
   const canSubmit = nameInput.trim().length > 0 && urlInput.trim().length > 0
@@ -35,10 +51,10 @@ export default function EditShortcutPopUp({
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 0, transition: { duration: 0.1 } }}
           className="mx-auto flex h-72 w-full max-w-[512px] flex-col justify-evenly rounded-md bg-white px-3 shadow-lg shadow-shadowColor"
-          onClick={(e) => e.stopPropagation()} // Prevent clicks on the form from closing the modal
-          onSubmit={editShortcut} // Ensure addShortcut is the submit handler
+          onClick={(e) => e.stopPropagation()}
+          onSubmit={handleEditShortcut}
         >
-          <h2 className="text-invertedText">Add Shortcut</h2>
+          <h2 className="text-invertedText">Edit Shortcut</h2>
           <label
             className="text-sm font-bold text-gray-600 text-invertedText"
             htmlFor="shortcutName"
@@ -51,7 +67,7 @@ export default function EditShortcutPopUp({
             name="shortcutName"
             id="shortcutName"
             value={nameInput}
-            onChange={(e) => setNameInput(e.target.value)} // Updated state for name input
+            onChange={(e) => setNameInput(e.target.value)}
             autoComplete="off"
             autoFocus
             maxLength={15}
@@ -68,20 +84,20 @@ export default function EditShortcutPopUp({
             name="shortcutUrl"
             id="shortcutUrl"
             value={urlInput}
-            onChange={(e) => setUrlInput(e.target.value)} // Corrected state reference
+            onChange={(e) => setUrlInput(e.target.value)}
             autoComplete="off"
           />
 
           <div className="mr-1 flex items-center justify-end gap-3">
             <button
-              type="button" // Explicitly set type to button to avoid form submission
+              type="button"
               className="border-1 rounded-full border border-primary px-3 py-1.5 text-base text-primary transition-all duration-200 active:scale-90"
               onClick={closeModal}
             >
               Cancel
             </button>
             <button
-              type="submit" // Ensure this is a submit button
+              type="submit"
               className="rounded-full bg-primary px-3 py-1.5 text-base text-white transition-all duration-200 active:scale-90 disabled:cursor-not-allowed disabled:bg-gray-400"
               disabled={!canSubmit}
             >

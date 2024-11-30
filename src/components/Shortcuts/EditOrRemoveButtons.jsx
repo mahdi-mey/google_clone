@@ -1,17 +1,27 @@
 "use client"
 
-export default function EditOrRemoveShortcut({
+import { useEffect } from "react"
+
+export default function EditOrRemoveButtons({
   shrtct,
   setShortcuts,
-  setIsShortcutPopUpOpen,
-  setIsEditOpen
+  setEditShortcut,
 }) {
+  useEffect(() => {
+    setEditShortcut((prev) => {
+      const { status } = prev
+      return { status, element: shrtct }
+    })
+  }, [setEditShortcut, shrtct])
 
   function editShortcut(e) {
     e.stopPropagation()
     e.preventDefault()
-    setIsEditOpen(false)
-    setIsShortcutPopUpOpen(true)
+    setEditShortcut((prev) => {
+      // const selectedElement = 1
+      const { element } = prev
+      return { element, status: "open" }
+    })
   }
 
   function removeShortcut(e) {

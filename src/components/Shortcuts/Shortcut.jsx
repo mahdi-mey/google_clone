@@ -1,12 +1,12 @@
 "use client"
 import { useState, useRef, useEffect } from "react"
 import { BiDotsVerticalRounded } from "react-icons/bi"
-import EditOrRemoveShortcut from "./EditOrRemoveShortcut"
+import EditOrRemoveButtons from "./EditOrRemoveButtons"
 
 export default function Shortcut({
   shrtct,
   setShortcuts,
-  setIsShortcutPopUpOpen,
+  setEditShortcut,
 }) {
   const [isEditOpen, setIsEditOpen] = useState(false)
   const editRef = useRef(null)
@@ -25,7 +25,7 @@ export default function Shortcut({
     setIsEditOpen(!isEditOpen)
   }
 
-  // Handle click outside of EditOrRemoveShortcut
+  // Handle click outside of EditOrRemoveButtons
   const handleClickOutside = (event) => {
     if (
       editRef.current &&
@@ -68,13 +68,13 @@ export default function Shortcut({
         onClick={handleIconClick}
         className="duration-600 absolute right-2 top-2 rounded-full text-xl font-bold transition-all hover:bg-slate-100 group-hover:opacity-100 sm:opacity-0"
       />
+
       {isEditOpen && (
         <div ref={editRef}>
-          <EditOrRemoveShortcut
+          <EditOrRemoveButtons
             shrtct={shrtct}
             setShortcuts={setShortcuts}
-            setIsShortcutPopUpOpen={setIsShortcutPopUpOpen}
-            setIsEditOpen={setIsEditOpen}
+            setEditShortcut={setEditShortcut}
           />
         </div>
       )}

@@ -3,10 +3,15 @@ import { useState } from "react";
 import ShortcutPopUp from "./ShortcutPopUp";
 import AddShortcutButton from "./AddShortcutButton";
 import Shortcut from "./Shortcut";
+import EditShortcutPopUp from "./EditShortcutPopUp";
 
 export default function ShortcutsContainer() {
   const [isShortcutPopUpOpen, setIsShortcutPopUpOpen] = useState(false);
   const [shortcuts, setShortcuts] = useState([])
+  const [editShortcut, setEditShortcut] = useState({
+    status: 'close',
+    element: null
+  })
 
   return (
     <div className="mt-2.5 flex flex-row flex-wrap items-center justify-center gap-2">
@@ -17,6 +22,7 @@ export default function ShortcutsContainer() {
             shrtct={shrtct}
             setShortcuts={setShortcuts}
             setIsShortcutPopUpOpen={setIsShortcutPopUpOpen}
+            setEditShortcut={setEditShortcut}
           />
         )
       })}
@@ -30,6 +36,10 @@ export default function ShortcutsContainer() {
           changeOpen={setIsShortcutPopUpOpen}
           setShortcuts={setShortcuts}
         />
+      )}
+
+      {editShortcut.status === "open" && (
+        <EditShortcutPopUp setEditShortcut={setEditShortcut} setShortcuts={setShortcuts} shortcuts={shortcuts} editShortcut={editShortcut} />
       )}
     </div>
   )
