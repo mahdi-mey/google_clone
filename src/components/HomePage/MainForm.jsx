@@ -49,7 +49,7 @@ export default function MainForm() {
           type="text"
           autoFocus
           onChange={(e) => setInputValue(e.target.value)}
-          className="flex-grow bg-muted focus:outline-none text-mainText"
+          className="flex-grow bg-muted focus:outline-none text-invertedText"
         />
         <MicrophoneIcon />
       </form>
