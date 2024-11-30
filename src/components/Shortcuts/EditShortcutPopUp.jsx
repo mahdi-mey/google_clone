@@ -14,19 +14,18 @@ export default function EditShortcutPopUp({
   function handleEditShortcut(e) {
     e.preventDefault()
 
-    // Get the index of the shortcut being edited
     const selectedElement = editShortcut.element
 
     if (selectedElement) {
       const updatedShortcuts = shortcuts.map((shortcut) => {
         if (shortcut.url === selectedElement.url) {
-          return { ...shortcut, name: nameInput, url: urlInput } // Update the name and URL
+          return { ...shortcut, name: nameInput, url: urlInput }
         }
-        return shortcut // Return unmodified shortcut
+        return shortcut
       })
 
-      setShortcuts(updatedShortcuts) // Update the shortcuts state with the new values
-      closeModal() // Close the modal after editing
+      setShortcuts(updatedShortcuts) 
+      closeModal()
     }
   }
 

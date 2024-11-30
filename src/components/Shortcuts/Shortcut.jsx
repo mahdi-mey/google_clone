@@ -3,12 +3,8 @@ import { useState, useRef, useEffect } from "react"
 import { BiDotsVerticalRounded } from "react-icons/bi"
 import EditOrRemoveButtons from "./EditOrRemoveButtons"
 
-export default function Shortcut({
-  shrtct,
-  setShortcuts,
-  setEditShortcut,
-}) {
-  const [isEditOpen, setIsEditOpen] = useState(false)
+export default function Shortcut({ shrtct, setShortcuts, setEditShortcut }) {
+  const [isEditOpen, setIsEditOpen] = useState < boolean > false
   const editRef = useRef(null)
 
   let faviconUrl
@@ -22,26 +18,25 @@ export default function Shortcut({
   function handleIconClick(e) {
     e.stopPropagation()
     e.preventDefault()
-    setIsEditOpen(!isEditOpen)
-  }
-
-  // Handle click outside of EditOrRemoveButtons
-  const handleClickOutside = (event) => {
-    if (
-      editRef.current &&
-      !editRef.current.contains(event.target) &&
-      isEditOpen
-    ) {
-      setIsEditOpen(false)
-    }
+    setIsEditOpen((prev) => !prev)
   }
 
   useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        editRef.current &&
+        !editRef.current.contains(event.target) &&
+        isEditOpen
+      ) {
+        setIsEditOpen(false)
+      }
+    }
+
     document.addEventListener("mousedown", handleClickOutside)
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [isEditOpen])
+  }, [isEditOpen, setIsEditOpen])
 
   return (
     <a
