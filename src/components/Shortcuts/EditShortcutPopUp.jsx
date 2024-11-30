@@ -24,7 +24,7 @@ export default function EditShortcutPopUp({
         return shortcut
       })
 
-      setShortcuts(updatedShortcuts) 
+      setShortcuts(updatedShortcuts)
       closeModal()
     }
   }
@@ -49,7 +49,7 @@ export default function EditShortcutPopUp({
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 0, transition: { duration: 0.1 } }}
-          className="mx-auto flex h-72 w-full max-w-[512px] flex-col justify-evenly rounded-md bg-white px-3 shadow-lg shadow-shadowColor"
+          className="mx-auto flex h-72 w-full max-w-[512px] flex-col justify-evenly rounded-md bg-muted px-3 shadow-lg shadow-shadowColor"
           onClick={(e) => e.stopPropagation()}
           onSubmit={handleEditShortcut}
         >

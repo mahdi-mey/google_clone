@@ -52,7 +52,7 @@
   --text-color-main: hsl(0, 0%, 90%);
   --text-color-inverted: hsl(0, 0%, 89%);
   --text-color-light: hsl(0, 0%, 83%);
-  --shadow-color: rgba(73, 73, 73, 0.5);
+  --shadow-color: rgba(42, 42, 42, 0.5);
 }
 
 .theme-dark-red {
@@ -64,7 +64,7 @@
   --text-color-main: hsl(0, 0%, 90%);
   --text-color-inverted: hsl(0, 0%, 89%);
   --text-color-light: hsl(0, 0%, 83%);
-  --shadow-color: rgba(73, 73, 73, 0.5);
+  --shadow-color: rgba(42, 42, 42, 0.5);
 }
 
 .theme-dark-green {
@@ -76,7 +76,7 @@
   --text-color-main: hsl(0, 0%, 90%);
   --text-color-inverted: hsl(0, 0%, 89%);
   --text-color-light: hsl(0, 0%, 83%);
-  --shadow-color: rgba(73, 73, 73, 0.5);
+  --shadow-color: rgba(42, 42, 42, 0.5);
 }
 
 .theme-dark-yellow {
@@ -88,7 +88,7 @@
   --text-color-main: hsl(0, 0%, 90%);
   --text-color-inverted: hsl(0, 0%, 89%);
   --text-color-light: hsl(0, 0%, 83%);
-  --shadow-color: rgba(73, 73, 73, 0.5);
+  --shadow-color: rgba(42, 42, 42, 0.5);
 }
 
 body {
