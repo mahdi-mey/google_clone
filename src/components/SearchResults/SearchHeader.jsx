@@ -7,7 +7,7 @@ import SearchHeaderOptions from "./SearchHeaderOptions"
 export default function SearchHeader() {
   return (
     <>
-      <header className="sticky top-0 flex flex-row items-center justify-center gap-1.5 bg-white px-2 py-3 sm:justify-between sm:gap-0 sm:px-6">
+      <header className="sticky top-0 flex flex-row items-center justify-center gap-1.5 bg-scene px-2 py-3 sm:justify-between sm:gap-0 sm:px-6">
         <Link href="/" className="customMargin">
           <Image
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png"

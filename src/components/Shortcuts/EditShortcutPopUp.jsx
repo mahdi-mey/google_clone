@@ -61,7 +61,7 @@ export default function EditShortcutPopUp({
             Name
           </label>
           <input
-            className="h-9 rounded-t-md border-b-2 border-gray-500 bg-gray-200/70 ps-2 outline-none focus:border-primary"
+            className="h-9 rounded-t-md border-b-2 border-gray-500 bg-gray-100/70 text-black ps-2 outline-none focus:border-primary"
             type="text"
             name="shortcutName"
             id="shortcutName"
@@ -78,7 +78,7 @@ export default function EditShortcutPopUp({
             Url
           </label>
           <input
-            className="h-9 rounded-t-md border-b-2 border-gray-500 bg-gray-200/70 ps-2 outline-none focus:border-primary"
+            className="h-9 rounded-t-md border-b-2 border-gray-500 bg-gray-100/70 text-black ps-2 outline-none focus:border-primary"
             type="text"
             name="shortcutUrl"
             id="shortcutUrl"

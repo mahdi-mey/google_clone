@@ -26,7 +26,7 @@ export default function AlertTemplate({
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0, transition: { duration: 0.1 } }}
-            className="flex w-1/3 min-w-[300px] flex-col items-center justify-center gap-4 rounded-lg bg-white px-1 py-4"
+            className="flex w-1/3 min-w-[300px] flex-col items-center justify-center gap-4 rounded-lg bg-muted px-1 py-4"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             {icon}
