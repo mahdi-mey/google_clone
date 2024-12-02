@@ -4,6 +4,9 @@ import { RxCross1 } from "react-icons/rx"
 import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import { useState, useRef } from "react"
 import MicrophoneIcon from "@/components/MicrophoneIcon"
+import { useEffect } from "react"
+import { changePattern } from "../Customize/changePatternFn"
+import { changeTheme } from "../Customize/changeThemeFn"
 
 export default function SearchBox() {
   const searchParams = useSearchParams()
@@ -13,6 +16,37 @@ export default function SearchBox() {
   const searchTerm = searchParams.get("searchTerm")
   const [term, setTerm] = useState(searchTerm || "")
   const inputRef = useRef(null)
+
+  useEffect(() => {
+    try {
+      const themeDetails = localStorage.getItem("themeDetails")
+      const { selectedTab, selectedTheme, selectedPattern } = themeDetails
+        ? JSON.parse(themeDetails)
+        : {}
+
+      window.localStorage.setItem(
+        "themeDetails",
+        JSON.stringify({
+          selectedTab: selectedTab || "Light",
+          selectedTheme: selectedTheme || "default-Light",
+          selectedPattern: selectedPattern || "default-light-pattern",
+        }),
+      )
+      changeTheme(selectedTheme)
+      changePattern(selectedPattern)
+    } catch (error) {
+      console.error("Error retrieving theme details from localStorage:", error)
+      // Optionally set default values in localStorage
+      window.localStorage.setItem(
+        "themeDetails",
+        JSON.stringify({
+          selectedTab: "Light",
+          selectedTheme: "default-Light",
+          selectedPattern: "default-light-pattern",
+        }),
+      )
+    }
+  }, [])
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -24,9 +58,7 @@ export default function SearchBox() {
 
     if (urlRegex.test(term)) {
       // Redirect to the valid URL
-      window.location.href = term.startsWith("http")
-        ? term
-        : `https://${term}`
+      window.location.href = term.startsWith("http") ? term : `https://${term}`
     } else {
       if (pathName === "/search/image") {
         router.push(`/search/image?searchTerm=${term}`)
