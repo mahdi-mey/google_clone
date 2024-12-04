@@ -1,4 +1,3 @@
-"use client"
 import { useState, useRef, useEffect } from "react"
 import { BiDotsVerticalRounded } from "react-icons/bi"
 import EditOrRemoveButtons from "./EditOrRemoveButtons"

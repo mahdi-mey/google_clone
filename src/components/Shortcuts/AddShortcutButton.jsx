@@ -1,4 +1,3 @@
-"use client";
 import { BiPlus } from "react-icons/bi";
 
 export default function AddShortcutButton({ setIsAddShortcutOpen }) {
