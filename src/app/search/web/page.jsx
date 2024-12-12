@@ -15,6 +15,7 @@ export default async function Web_Page({ searchParams }) {
   if (!response.ok) throw new Error("Something went wrong")
   const data = await response.json()
   const resaults = data.items
+  
 
   if (!resaults) {
     return (

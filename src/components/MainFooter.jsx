@@ -42,7 +42,7 @@ export default function MainFooter() {
   }, [])
 
   return (
-    <footer className="absolute bottom-0 left-0 right-0 flex items-center justify-between bg-muted py-2">
+    <footer className="flex items-center justify-between bg-muted py-2">
       <UserCountry />
       <CustomizeButton setIsCustomizeOpen={setIsCustomizeOpen} />
       <AnimatePresence>
