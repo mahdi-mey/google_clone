@@ -1,19 +1,21 @@
+import EmptySearchWarning from "@/components/EmptySearchWarning"
 import SearchResaults from "@/components/SearchResults/SearchResults"
 import Link from "next/link"
-import { redirect } from "next/navigation"
 
-export default async function Web_Page({searchParams}) {
-  const startIndex = searchParams.start || "1"
-  //check to see if there is content to search and if not then redirect to main page
-  const searchTerm = searchParams?.searchTerm?.trim()
-  if (!searchTerm) {
-    redirect("/")
+export default async function Web_Page({ searchParams }) {
+  if (!searchParams.searchTerm) {
+    return (
+      <EmptySearchWarning />
+    )
   }
-  const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&start=${startIndex}`)
+
+  const startIndex = searchParams.start || "1"
+  const response = await fetch(
+    `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&start=${startIndex}`,
+  )
   if (!response.ok) throw new Error("Something went wrong")
   const data = await response.json()
   const resaults = data.items || null
-  
 
   if (!resaults) {
     return (
@@ -34,7 +36,7 @@ export default async function Web_Page({searchParams}) {
           alt="page not found image"
         />
       </div>
-    );
+    )
   }
 
   return <div>{resaults && <SearchResaults results={data} />}</div>
