@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import React from "react"
+import React, { Suspense } from "react"
 import SearchBox from "./SearchBox"
 import SearchHeaderOptions from "./SearchHeaderOptions"
 
@@ -17,12 +17,16 @@ export default function SearchHeader() {
             height={44}
           />
         </Link>
-        <SearchBox />
+        <Suspense fallback={<p>Loading Search Input...</p>}>
+          <SearchBox />
+        </Suspense>
         <button className="ml-2 w-28 whitespace-nowrap rounded-lg bg-blue-500 px-3 py-1.5 font-bold text-white sm:px-7 sm:py-3">
           Sign In
         </button>
       </header>
-      <SearchHeaderOptions />
+      <Suspense fallback={<p>Loading Search header options...</p>}>
+        <SearchHeaderOptions />
+      </Suspense>
     </>
   )
 }

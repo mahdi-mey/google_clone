@@ -1,7 +1,8 @@
-"use client";
-import Link from "next/link";
-import Parser from "html-react-parser";
-import PaginationButtons from "./PaginationButtons";
+"use client"
+import Link from "next/link"
+import Parser from "html-react-parser"
+import PaginationButtons from "./PaginationButtons"
+import { Suspense } from "react"
 
 export default function WebSearchResults({ results }) {
   return (
@@ -14,7 +15,7 @@ export default function WebSearchResults({ results }) {
         const faviconUrl =
           result.pagemap?.cse_thumbnail?.[0]?.src ||
           "https://www.google.com/s2/favicons?sz=64&domain=" +
-            new URL(result.link).hostname;
+            new URL(result.link).hostname
 
         return (
           <div className="mb-8 max-w-xl" key={result.link}>
@@ -32,19 +33,18 @@ export default function WebSearchResults({ results }) {
                 >
                   {result.title}
                 </Link>
-                <Link
-                  href={result.link}
-                  className="mb-1 text-gray-500"
-                >
+                <Link href={result.link} className="mb-1 text-gray-500">
                   {result.formattedUrl}
                 </Link>
               </div>
             </div>
             <p className="text-gray-600">{Parser(result.htmlSnippet)}</p>
           </div>
-        );
+        )
       })}
-      <PaginationButtons />
+      <Suspense fallback={<p>Loading Pagination Buttons...</p>}>
+        <PaginationButtons />
+      </Suspense>
     </div>
-  );
+  )
 }

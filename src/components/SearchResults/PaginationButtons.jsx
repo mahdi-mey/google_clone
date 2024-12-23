@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import Link from "next/link"
+import { usePathname, useSearchParams } from "next/navigation"
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs"
 
 export default function PaginationButtons() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const searchTerm = searchParams.get("searchTerm");
-  const startIndex = +searchParams.get("start") || 1;
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const searchTerm = searchParams.get("searchTerm")
+  const startIndex = +searchParams.get("start") || 1
 
   return (
     <div className="flex justify-between px-10 pb-4 text-blue-700 sm:justify-start sm:space-x-44 sm:px-0">
@@ -33,5 +33,5 @@ export default function PaginationButtons() {
         </Link>
       )}
     </div>
-  );
+  )
 }

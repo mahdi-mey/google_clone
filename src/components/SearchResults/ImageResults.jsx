@@ -1,6 +1,7 @@
 import Link from "next/link"
 import PaginationButtons from "@/components/SearchResults/PaginationButtons"
 import Image from "next/image"
+import { Suspense } from "react"
 
 export default function ImageSearchResults({ results }) {
   return (
@@ -32,7 +33,9 @@ export default function ImageSearchResults({ results }) {
         ))}
       </div>
       <div className="pl-16">
-        <PaginationButtons />
+        <Suspense fallback={<p>Loading Pagination Buttons...</p>}>
+          <PaginationButtons />
+        </Suspense>
       </div>
     </div>
   )
