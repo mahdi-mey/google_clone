@@ -15,7 +15,7 @@ export default function ImageSearchResults({ results }) {
                 <Image
                   src={result.link}
                   alt={result.title}
-                  className="otln h-60 w-full object-cover transition-shadow duration-300 group-hover:shadow-xl"
+                  className="h-60 w-full object-cover transition-shadow duration-300 group-hover:shadow-xl"
                 />
               </Link>
               <Link href={result.image.contextLink}>
