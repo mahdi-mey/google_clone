@@ -1,7 +1,7 @@
 import Link from "next/link"
 import PaginationButtons from "@/components/SearchResults/PaginationButtons"
-import Image from "next/image"
 import { Suspense } from "react"
+import Image from "next/image"
 
 export default function ImageSearchResults({ results }) {
   return (
@@ -11,11 +11,12 @@ export default function ImageSearchResults({ results }) {
           <div className="mb-8" key={result.link}>
             <div className="group">
               <Link href={result.image.contextLink}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <Image
+                  width={330}
+                  height={240}
                   src={result.link}
                   alt={result.title}
-                  className="h-60 w-full object-cover transition-shadow duration-300 group-hover:shadow-xl"
+                  className="h-60 w-full object-cover transition-shadow duration-300 group-hover:shadow-xl imgtag"
                 />
               </Link>
               <Link href={result.image.contextLink}>
