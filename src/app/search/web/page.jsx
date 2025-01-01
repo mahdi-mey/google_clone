@@ -4,9 +4,7 @@ import SearchResaults from "@/components/SearchResults/SearchResults"
 
 export default async function Web_Page({ searchParams }) {
   if (!searchParams.searchTerm) {
-    return (
-      <EmptySearchWarning />
-    )
+    return <EmptySearchWarning />
   }
 
   const startIndex = searchParams.start || "1"
@@ -22,4 +20,16 @@ export default async function Web_Page({ searchParams }) {
   }
 
   return <div>{resaults && <SearchResaults results={data} />}</div>
+}
+
+export async function generateMetadata({ searchParams }) {
+  const title = searchParams.searchTerm
+    ? searchParams.searchTerm
+    : ""
+
+    const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1)
+
+  return {
+    title: `Google Search - ${capitalizedTitle}`,
+  }
 }

@@ -4,9 +4,7 @@ import ImageResults from "@/components/SearchResults/ImageResults"
 
 export default async function Images_Page({ searchParams }) {
   if (!searchParams.searchTerm) {
-    return (
-      <EmptySearchWarning />
-    )
+    return <EmptySearchWarning />
   }
 
   const startIndex = searchParams.start || "1"
@@ -18,10 +16,17 @@ export default async function Images_Page({ searchParams }) {
   const resaults = data.items || null
 
   if (!resaults) {
-    return (
-      <NoResultsFound searchTerm={searchParams.searchTerm} />
-    )
+    return <NoResultsFound searchTerm={searchParams.searchTerm} />
   }
 
   return <div>{resaults && <ImageResults results={data} />}</div>
+}
+export async function generateMetadata({ searchParams }) {
+  const title = searchParams.searchTerm ? searchParams.searchTerm : ""
+
+  const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1)
+
+  return {
+    title: `Images Search - ${capitalizedTitle}`,
+  }
 }
