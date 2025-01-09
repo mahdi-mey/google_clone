@@ -20,50 +20,47 @@ export default function MicrophoneIcon() {
     return new Promise((resolve) => setTimeout(resolve, ms))
   }
 
-  const {
-    transcript,
-    listening,
-    resetTranscript,
-  } = useSpeechRecognition()
+  const { transcript, listening, resetTranscript } = useSpeechRecognition()
 
   async function listenHandler() {
-    if (isMicrophoneGranted === null) {
-      await checkMicrophonePermission()
-    }
+    // if (isMicrophoneGranted === null) {
+    //   await checkMicrophonePermission()
+    // }
 
-    if (isMicrophoneGranted) {
-    resetTranscript()
-    console.log("started listening")
-    SpeechRecognition.startListening()
-    await timeout(4000)
-    SpeechRecognition.stopListening()
-    console.log("stopped")
-    setCanSearch(true)
-    } else {
-      console.log("you have denied access to your microphone")
-      setShowAlert(true)
-    }
+    // if (isMicrophoneGranted) {
+    //   resetTranscript()
+    //   console.log("started listening")
+      SpeechRecognition.startListening()
+      await timeout(4000)
+      SpeechRecognition.stopListening()
+      console.log("stopped")
+      setCanSearch(true)
+    // } else {
+    //   console.log("you have denied access to your microphone")
+    //   setShowAlert(true)
+    // }
   }
 
   const checkMicrophonePermission = async () => {
-    if (!navigator.permissions || !navigator.permissions.query) {
-      setIsMicrophoneGranted(false)
-      return
-    }
+    console.log("inside check mic persmision")
+    // if (!navigator.permissions || !navigator.permissions.query) {
+    //   setIsMicrophoneGranted(false)
+    //   return
+    // }
 
-    try {
-      const permissionStatus = await navigator.permissions.query({
-        name: "microphone",
-      })
-      setIsMicrophoneGranted(permissionStatus.state === "granted")
+    // try {
+    //   const permissionStatus = await navigator.permissions.query({
+    //     name: "microphone",
+    //   })
+    //   setIsMicrophoneGranted(permissionStatus.state === "granted")
 
-      permissionStatus.onchange = () => {
-        setIsMicrophoneGranted(permissionStatus.state === "granted")
-      }
-    } catch (error) {
-      console.error("Error checking microphone permission:", error)
-      setIsMicrophoneGranted(false)
-    }
+    //   permissionStatus.onchange = () => {
+    //     setIsMicrophoneGranted(permissionStatus.state === "granted")
+    //   }
+    // } catch (error) {
+    //   console.error("Error checking microphone permission:", error)
+    //   setIsMicrophoneGranted(false)
+    // }
   }
 
   useEffect(() => {
@@ -80,7 +77,7 @@ export default function MicrophoneIcon() {
       ) : (
         <BsFillMicFill
           onClick={listenHandler}
-          className="text-lightText cursor-pointer text-lg text-gray-600 transition-all duration-200 active:scale-75"
+          className="cursor-pointer text-lg text-gray-600 text-lightText transition-all duration-200 active:scale-75"
         />
       )}
     </>
