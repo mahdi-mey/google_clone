@@ -3,7 +3,7 @@ import { BiDotsVerticalRounded } from "react-icons/bi"
 import EditOrRemoveButtons from "./EditOrRemoveButtons"
 
 export default function Shortcut({ shrtct, setShortcuts, setEditShortcut }) {
-  const [isEditOpen, setIsEditOpen] = useState < boolean > false
+  const [isEditOpen, setIsEditOpen] = useState(false)
   const editRef = useRef(null)
 
   let faviconUrl

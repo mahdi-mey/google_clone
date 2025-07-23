@@ -18,7 +18,6 @@ export default function EditOrRemoveButtons({
     e.stopPropagation()
     e.preventDefault()
     setEditShortcut((prev) => {
-      // const selectedElement = 1
       const { element } = prev
       return { element, status: "open" }
     })
